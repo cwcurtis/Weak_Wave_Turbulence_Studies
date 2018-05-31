@@ -1,0 +1,80 @@
+ \documentclass[a4paper,11pt]{article}
+\usepackage{epstopdf, epsfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{amsthm}
+\usepackage{graphicx}
+%\usepackage{caption}
+%\usepackage{subcaption}
+
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\bt}{\begin{tabular}}
+\newcommand{\et}{\end{tabular}}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+
+\newcommand{\bp}{\begin{pmatrix}}
+\newcommand{\ep}{\end{pmatrix}}
+
+\newcommand{\pd}{\partial}
+\newcommand{\sech}{\mbox{sech}}
+
+\newcommand{\cf}{{\it cf.}~}
+
+\newcommand{\ltwo}{L_{2}(\mathbb{R}^{2})}
+\newcommand{\smooth}{C^{\infty}_{0}(\mathbb{R}^{2})}
+
+\newcommand{\br}{{\bf r}}
+\newcommand{\bk}{{\bf k}}
+\newcommand{\bv}{{\bf v}}
+
+\newcommand{\gnorm}[1]{\left|\left| #1\right|\right|}
+\newcommand{\ipro}[2]{\left<#1,#2 \right>}
+
+%\setlength{\topmargin}{-40pt} \setlength{\oddsidemargin}{0pt}
+%\setlength{\evensidemargin}{0pt} \setlength{\textwidth}{460pt}
+%\setlength{\textheight}{680pt}
+
+\begin{document}
+So we are beating
+\[
+i\psi_{t} = -\Delta \psi + \left| \psi\right|^{2}\psi + \gamma(x,y,t)
+\]
+to death.  If we are looking for periodic coefficients on a periodic box $[-L,L]\times[-L,L]$, then we are supposing that
+\[
+\psi(x,y,t) = \sum_{n,m}\hat{\psi}_{nm}(t) e^{i\frac{\pi}{L}(mx + ny)}, 
+\]
+where
+\[
+ \hat{\psi}_{nm}(t) = \frac{1}{(2L)^{2}}\int_{-L}^{L}\int_{-L}^{L} \psi(x,y,t) e^{-i\frac{\pi}{L}(mx + ny)} dxdy.
+\]
+At this point, if we approximate by taking a finite number of modes in $n$ and $m$, say $-K+1\leq n \leq K$, so that the total number of modes along each direction is given by $K_{T}=2K$, we can talk about two different meshes.  In physical space, we have a mesh of width $\delta x = L/K$, while in frequency space, we have a mesh of width $\delta k = \pi/L$.  Once we discretize in physical space, we then find, using the Trapezoid method, the approximation to the Fourier coefficients $\hat{\psi}_{nm}$ so that 
+\[
+\hat{\psi}_{nm}(t) \sim \frac{1}{K_{T}^{2}}\sum_{j,k}\psi_{jk}e^{-i\frac{\pi}{L}(mx_{j} + ny_{k})}
+\]
+We note though, that in Matlab, the FFT implementation places the $1/K_{T}^{2}$ on the inverse transform.  So, to compare Nazarenko and Onorato, we need to multiply our Fourier coefficients by $K_{T}^{2}$.  
+
+Next, if are going to work in magnitudes of $k$-space vectors, then if we define ${\bf k}_{nm} = \delta k \left(n,m \right)$, then 
+\[
+k_{nm} = \delta k \sqrt{n^{2}+m^{2}}
+\]
+Note, when we find 
+\[
+n({\bf k}_{nm}) = \overline{\left| \hat{\psi}_{nm}\right|^{2}}, 
+\]
+Nazarenko and Onorato assume that $n$ is isotropic, and thus independent of angle in $k$ space.  
+\end{document}
