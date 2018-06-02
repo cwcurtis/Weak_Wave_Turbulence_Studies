@@ -5,13 +5,13 @@ function wwt_maker(K,Llx,tf)
     dt = .1; 
     Nsteps = tf/dt;
     n = 8;
-    f0c = 2.1e-3; 
-    nuh = 2e-6;
-    nul = 1e-18;
     Kmask = K/2;
     KT = 2*K;
     KTT = KT^2;
-
+    f0c = KTT*2.1e-3; 
+    nuh = 2e-6;
+    nul = 1e-18;
+    
     Kl = 4;
     Kh = 6;
 
@@ -40,7 +40,7 @@ function wwt_maker(K,Llx,tf)
     
     f0 = zeros(KT);
     
-    ksq = sqrt( ( (kron(ones(KT,1),(-K+1:K)')).^2 + (kron((-K+1:K)',ones(KT,1))).^2)/2 );
+    ksq = sqrt( ( (kron(ones(KT,1),(-K+1:K)')).^2 + (kron((-K+1:K)',ones(KT,1))).^2) );
     indsl = ksq >= Kl;
     indsh = ksq <= Kh;
     indsc = logical(indsl.*indsh);
@@ -57,6 +57,8 @@ function wwt_maker(K,Llx,tf)
     %}
     un = zeros(KT^2,1);
     uavg = zeros(KT^2,1);
+    Ncnt = [];
+    
     Nstart = 10000;
     Nint = 1000;
     acnt = 0;
@@ -67,7 +69,10 @@ function wwt_maker(K,Llx,tf)
         un = Eop.*(un+k1/2) + k2/2;
         
         if jj> Nstart && mod(jj,Nint)==0
-            uavg = uavg + KT^4*abs(un.*conj(un));
+            uavg = uavg + abs(un.*conj(un))/KT^4;
+            uphys = ifft2(reshape(un,KT,KT));
+            nint = sum(sum(real(uphys.*conj(uphys))))*(1/KT)^2;
+            Ncnt = [Ncnt nint];
             acnt = acnt + 1;
         end
     end
@@ -76,19 +81,38 @@ function wwt_maker(K,Llx,tf)
         uavg = fftshift(reshape(uavg/acnt,KT,KT));
         [krad,kavg] = mat_avg(uavg,K);
         figure(1)
-        plot(log10(pi*krad/Llx),log10(2*Llx*krad.*kavg),'k-','LineWidth',2)
+        plot(log10(pi*krad/Llx),log10(2*pi*(pi*krad/Llx).*kavg),'k-','LineWidth',2)
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$\log_{10}|k|$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$N(|k|)$','Interpreter','LaTeX','FontSize',30)
+        
+        figure(2)
+        plot(dt*Nint*(1:acnt)+Nstart,log10(Ncnt),'k-','LineWidth',2)
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$\tilde{t}$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\log_{10} N_{p}$','Interpreter','LaTeX','FontSize',30)
+        
     end
     
     Xmesh = linspace(-Llx,Llx,KT+1);
     Xmesh = Xmesh(1:KT)';
     ufin = ifft2(reshape(un,KT,KT));
     
-    figure(2)
-    imagesc(Xmesh,Xmesh,abs(ufin))
-    
     figure(3)
+    imagesc(Xmesh,Xmesh,abs(ufin))
+    h = set(gca,'FontSize',30);
+    set(h,'Interpreter','LaTeX')
+    xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+    ylabel('$y$','Interpreter','LaTeX','FontSize',30)
+    
+    figure(4)
     imagesc(Xmesh,Xmesh,angle(ufin))
-        
+    h = set(gca,'FontSize',30);
+    set(h,'Interpreter','LaTeX')
+    xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+    ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
     toc
 end
 
@@ -102,9 +126,7 @@ end
 
 function [krad,kavg] = mat_avg(M,K)
     KT = 2*K;
-    inds = -K+1:K;
-    figure(4)
-    surf(inds,inds,log10(M),'LineStyle','none')
+    %inds = -K+1:K;
     
     krad = (1:K)';
     kavg = M(K,K+1:KT)';
