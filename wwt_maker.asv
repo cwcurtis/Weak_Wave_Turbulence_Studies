@@ -3,17 +3,15 @@ function wwt_maker(K,Llx,tf)
     tic
 
     dt = .1; 
-    dx = Llx/K;
     Nsteps = tf/dt;
     n = 8;
     Kmask = K/2;
+    Xmesh = linspace()
     KT = 2*K;
     KTT = KT^2;
     f0c = KTT*2.1e-3; 
     nuh = 2e-6;
     nul = 1e-18;
-    Xmesh = linspace(-Llx,Llx,KT+1);
-    Xmesh = Xmesh(1:KT)';
     
     Kl = 4;
     Kh = 6;
@@ -43,32 +41,25 @@ function wwt_maker(K,Llx,tf)
     uavg = zeros(KT^2,1);
     Ncnt = [];
     
-    Nstart = 1000;
-    Nint = 100;
+    Nstart = 10000;
+    Nint = 1000;
     acnt = 0;
-    uvels = zeros(KT,KT,Nsteps-Nstart);
-    vvels = zeros(KT,KT,Nsteps-Nstart);
-    
+    uvels
     for jj=1:Nsteps
         k1 = dt*nonlin(un,f0,KT);
         k2 = dt*nonlin(Eop.*(un+k1),f0,KT);
         un = Eop.*(un+k1/2) + k2/2;
+        
         if jj> Nstart && mod(jj,Nint)==0
+            uavg = uavg + abs(un.*conj(un))/KT^4;
             uphys = ifft2(reshape(un,KT,KT));
-            uphase = fft2(angle(uphys));
-            uvels(:,:,jj-Nstart) = real(ifft2(reshape(Dx.*uphase(:),KT,KT)));
-            vvels(:,:,jj-Nstart) = real(ifft2(reshape(Dy.*uphase(:),KT,KT)));        
-            if mod(jj,Nint)==0
-                uavg = uavg + abs(un.*conj(un))/KT^4;
-                uphys = ifft2(reshape(un,KT,KT));
-                nint = sum(sum(real(uphys.*conj(uphys))))*(1/KT)^2;
-                Ncnt = [Ncnt nint];
-                acnt = acnt + 1;
-            end
+            nint = sum(sum(real(uphys.*conj(uphys))))*(1/KT)^2;
+            Ncnt = [Ncnt nint];
+            acnt = acnt + 1;
         end
     end
-    [sigfield,skip] = ftle_finder(uvels,vvels,Xmesh,dt,dx);   
     
+    sigfield = ftle_finder(uvels,vvels,Xmesh,dt,dx)
     
     if acnt > 0
         uavg = fftshift(reshape(uavg/acnt,KT,KT));
@@ -85,9 +76,12 @@ function wwt_maker(K,Llx,tf)
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
         xlabel('$\tilde{t}$','Interpreter','LaTeX','FontSize',30)
-        ylabel('$\log_{10} N_{p}$','Interpreter','LaTeX','FontSize',30)      
+        ylabel('$\log_{10} N_{p}$','Interpreter','LaTeX','FontSize',30)
+        
     end
     
+    Xmesh = linspace(-Llx,Llx,KT+1);
+    Xmesh = Xmesh(1:KT)';
     ufin = ifft2(reshape(un,KT,KT));
     
     figure(3)
@@ -103,14 +97,6 @@ function wwt_maker(K,Llx,tf)
     set(h,'Interpreter','LaTeX')
     xlabel('$x$','Interpreter','LaTeX','FontSize',30)
     ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
-    
-    figure(5)
-    imagesc(Xmesh(2:skip:KT-1),Xmesh(2:skip:KT-1),sigfield)
-    h = set(gca,'FontSize',30);
-    set(h,'Interpreter','LaTeX')
-    xlabel('$x$','Interpreter','LaTeX','FontSize',30)
-    ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
-    
     toc
 end
 
