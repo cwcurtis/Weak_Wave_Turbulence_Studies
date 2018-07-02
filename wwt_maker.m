@@ -43,7 +43,7 @@ function wwt_maker(K,Llx,tf)
     uavg = zeros(KT^2,1);
     Ncnt = [];
     
-    Nstart = 1000;
+    Nstart = 3000;
     Nint = 100;
     acnt = 0;
     uvels = zeros(KT,KT,Nsteps-Nstart);
@@ -67,7 +67,7 @@ function wwt_maker(K,Llx,tf)
             end
         end
     end
-    [sigfield,skip] = ftle_finder(uvels,vvels,Xmesh,dt,dx);   
+    sigfield = ftle_finder_sub_grid(uvels,vvels,Xmesh,dt,dx);   
     
     
     if acnt > 0
@@ -105,7 +105,7 @@ function wwt_maker(K,Llx,tf)
     ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
     
     figure(5)
-    imagesc(Xmesh(2:skip:KT-1),Xmesh(2:skip:KT-1),sigfield)
+    imagesc(Xmesh(2:KT-1),Xmesh(2:KT-1),sigfield)
     h = set(gca,'FontSize',30);
     set(h,'Interpreter','LaTeX')
     xlabel('$x$','Interpreter','LaTeX','FontSize',30)
