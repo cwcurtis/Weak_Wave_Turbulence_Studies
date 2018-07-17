@@ -43,21 +43,39 @@ function wwt_maker(K,Llx,tf)
     uavg = zeros(KT^2,1);
     Ncnt = [];
     
-    Nstart = 3000;
-    Nint = 100;
+    Nstart = 1e4;
+    Nint = 1e3;
     acnt = 0;
-    uvels = zeros(KT,KT,Nsteps-Nstart);
-    vvels = zeros(KT,KT,Nsteps-Nstart);
+    uvels = zeros(KT,KT,3);
+    vvels = zeros(KT,KT,3);
+    dxr = dx/100;
+    dtl = 2*dt;
+    Ktot = KT + 2*(KT-2) + 2;
+    xpaths = zeros(Ktot);
+    ypaths = zeros(Ktot);
+    Xpts = zeros(Ktot,1);
+    Xrght = Xmesh(1:KT-1)+dxr;
+    Xlft = Xmesh(2:KT)-dxr;
+    Xpts(1:3:Ktot) = Xmesh;
+    Xpts(2:3:Ktot) = Xrght;
+    Xpts(3:3:Ktot) = Xlft;
+    [xpaths(:,:),ypaths(:,:)] = meshgrid(Xpts);
+    tftle = 0;
     
     for jj=1:Nsteps
         k1 = dt*nonlin(un,f0,KT);
         k2 = dt*nonlin(Eop.*(un+k1),f0,KT);
         un = Eop.*(un+k1/2) + k2/2;
-        if jj> Nstart && mod(jj,Nint)==0
+        if jj>=Nstart 
             uphys = ifft2(reshape(un,KT,KT));
             uphase = fft2(angle(uphys));
-            uvels(:,:,jj-Nstart) = real(ifft2(reshape(Dx.*uphase(:),KT,KT)));
-            vvels(:,:,jj-Nstart) = real(ifft2(reshape(Dy.*uphase(:),KT,KT)));        
+            cind = mod(jj-Nstart,3)+1;
+            uvels(:,:,cind) = real(ifft2(reshape(Dx.*uphase(:),KT,KT)));
+            vvels(:,:,cind) = real(ifft2(reshape(Dy.*uphase(:),KT,KT)));        
+            if cind==3            
+                [xpaths,ypaths] = ftle_finder_rk4(xpaths,ypaths,uvels,vvels,Xmesh,dtl);
+                tftle = tftle + dtl;
+            end
             if mod(jj,Nint)==0
                 uavg = uavg + abs(un.*conj(un))/KT^4;
                 uphys = ifft2(reshape(un,KT,KT));
@@ -67,8 +85,7 @@ function wwt_maker(K,Llx,tf)
             end
         end
     end
-    sigfield = ftle_finder_sub_grid(uvels,vvels,Xmesh,dt,dx);   
-    
+    sigfield = ftle_finder_sub_grid(xpaths,ypaths,dxr,K,tftle);    
     
     if acnt > 0
         uavg = fftshift(reshape(uavg/acnt,KT,KT));
