@@ -44,6 +44,7 @@ function wwt_maker(K,Llx,tf)
     Ncnt = [];
     
     Nstart = 1e4;
+    Nvstart = 5e4;
     Nint = 1e3;
     acnt = 0;
     uvels = zeros(KT,KT,3);
@@ -67,14 +68,18 @@ function wwt_maker(K,Llx,tf)
         k2 = dt*nonlin(Eop.*(un+k1),f0,KT);
         un = Eop.*(un+k1/2) + k2/2;
         if jj>=Nstart 
-            uphys = ifft2(reshape(un,KT,KT));
-            uphase = fft2(angle(uphys));
-            cind = mod(jj-Nstart,3)+1;
-            uvels(:,:,cind) = real(ifft2(reshape(Dx.*uphase(:),KT,KT)));
-            vvels(:,:,cind) = real(ifft2(reshape(Dy.*uphase(:),KT,KT)));        
-            if cind==3            
-                [xpaths,ypaths] = ftle_finder_rk4(xpaths,ypaths,uvels,vvels,Xmesh,dtl);
-                tftle = tftle + dtl;
+            uphys = ifft2(reshape(un,KT,KT));            
+            if jj>=Nvstart
+                fac = conj(uphys)./(uphys.^2+1e-5);
+                Dux = real(ifft2(reshape(Dx.*un(:),KT,KT)));
+                Duy = real(ifft2(reshape(Dy.*un(:),KT,KT)));
+                cind = mod(jj-Nvstart,3)+1;
+                uvels(:,:,cind) = imag(Dux.*fac);
+                vvels(:,:,cind) = imag(Duy.*fac);        
+                if cind==3            
+                    [xpaths,ypaths] = ftle_finder_rk4(xpaths,ypaths,uvels,vvels,Xmesh,dtl);
+                    tftle = tftle + dtl;
+                end
             end
             if mod(jj,Nint)==0
                 uavg = uavg + abs(un.*conj(un))/KT^4;
