@@ -142,7 +142,7 @@ N_{p}(t) = \frac{1}{L^{2}}\int_{-L}^{L}\int_{-L}^{L} \left|\psi \right|^{2} dx d
 \]
 Note, there is nothing to enforce decaying boundary conditions, so without averaging across box area, the value $N_{p}(t)$ can get arbitrarly large.  So, in some ways, there is no clear way in which to address this issue of what the particle number and thus the healing length of this problem, or at least not without some more thought.  
 
-\item In a RK-2 scheme, we take $\delta t = .1$, and $t_{f}=1.3\times 10^{4}$, for a total of $1.3\times 10^{5}$ time steps.  We choose $t_{0}=1000$, and $N_{s}=1000$, or we skip every $100$ units of time in our numerics when generating averages.  Note, we plot $N_{p}(t)$ at those times $t_{0}+jN_{s}$, so that we can also get a sense of how the profile evolves in between these jumps of time, and how correlated these different times might be. 
+\item In a RK-2 scheme, we take $\delta t = .1$, and $t_{f}=1.5\times 10^{4}$, for a total of $1.5\times 10^{5}$ time steps.  We choose $t_{0}=1000$, and $N_{s}=1000$, or we skip every $100$ units of time in our numerics when generating averages.  Note, we plot $N_{p}(t)$ at those times $t_{0}+jN_{s}$, so that we can also get a sense of how the profile evolves in between these jumps of time, and how correlated these different times might be. 
 
 \item Everything else is as stated in Nazarenko.  Note, the forcing in spectral space throughout these simulations is given by 
 \[
@@ -154,17 +154,34 @@ where $\chi_{A}(x)$ is the indicator function for the set $A$ i.e.
 \chi_{A}(x)=0, & ~x\in A^{c}.
 \end{align*}
 We set $f_{0}=2.1\times 10^{-3}$.  
+\item To compute the gradient of the phase, and thus the associated velocity of the field used for finding the FTLE field, we use 
+\[
+\nabla \theta = \frac{\mbox{Im}\left(\psi^{\ast}\nabla \psi\right)}{\left|\psi\right|^{2} + \delta}, ~ \delta = 10^{-5}.
+\]
+Given that in the fully formed turbulent regime that $|\psi|=\mathcal{O}(.5)$ at its largest, the choice of regularization of the velocity of $\delta=10^{-5}$ should have a nominal impact on the evolution of the FTLE field.
 \end{itemize}
 With this and the other stated choices in the paper, we get the following figures 
 \begin{figure}
 \centering
-\begin{tabular}{cc}
-\includegraphics[width=.5\textwidth]{amplitude_K_128_Lx_128_tf_1pt3e4} & \includegraphics[width=.5\textwidth]{phase_K_128_Lx_128_tf_1pt3e4}\\
-(a) & (b) \\
-\includegraphics[width=.5\textwidth]{action_cascade_K_128_Lx_128_tf_1pt3e4} & \includegraphics[width=.5\textwidth]{np_count_K_128_Lx_128_tf_1pt3e4}\\
-(c) & (d)
+\begin{tabular}{c}
+\includegraphics[width=.95\textwidth]{amplitude_K_128_Lx_128_tf_1pt5e4} \\
+(a) \\
+\includegraphics[width=.95\textwidth]{phase_K_128_Lx_128_tf_1pt5e4} \\
+ (b) \\
+\includegraphics[width=.95\textwidth]{ftle_K_128_Lx_128_tf_1pt5e4} \\
+(c)
 \end{tabular}
-\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), phase $\mbox{arg}\left\{\psi(x,y,t_{f})\right\}$ (b), wave action $N(|k|)$ (c), and `particle count' $N_{p(t)}$ (d) .  Note the absence now of any symmetries in the flow, though the amplitudes are significantly larger given the proper scaling of the forcing. An argument can be made that the plot of the particle count $N_{p}$ shows roughly when the system is in equilibrium. If you squint, and in some ways that's all Nazarenko and company do, you can see the right cascade rate in (c).}
+\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), phase $\mbox{arg}\left\{\psi(x,y,t_{f})\right\}$ (b), and FTLE field (c).  Note, while the flow is no longer strictly symmetric, the FTLE field still shows a strong remnant of it.}
 \end{figure}
 
+\begin{figure}[!h]
+\centering
+\begin{tabular}{c}
+\includegraphics[width=.95\textwidth]{action_cascade_K_128_Lx_128_tf_1pt5e4} \\ 
+(a) \\
+\includegraphics[width=.95\textwidth]{np_count_K_128_Lx_128_tf_1pt5e4}\\
+(b)
+\end{tabular}
+\caption{The wave action $N(|k|)$ (a), and `particle count' $N_{p(t)}$ (b) .  An argument can be made that the plot of the particle count $N_{p}$ shows roughly when the system is in equilibrium. If you squint, and in some ways that's all Nazarenko and company do, you can see the right cascade rate in (a).}
+\end{figure}
 \end{document}

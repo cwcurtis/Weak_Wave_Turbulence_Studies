@@ -103,7 +103,7 @@ function wwt_maker(K,Llx,tf)
         ylabel('$N(|k|)$','Interpreter','LaTeX','FontSize',30)
         
         figure(2)
-        plot(dt*Nint*(1:acnt)+Nstart,log10(Ncnt),'k-','LineWidth',2)
+        plot(dt*Nint*(1:acnt)+dt*Nstart,log10(Ncnt),'k-','LineWidth',2)
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
         xlabel('$\tilde{t}$','Interpreter','LaTeX','FontSize',30)
