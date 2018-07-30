@@ -43,9 +43,9 @@ function wwt_maker(K,Llx,tf)
     uavg = zeros(KT^2,1);
     Ncnt = [];
     
-    Nstart = 1e4;
-    Nvstart = 5e4;
-    Nint = 1e3;
+    Nstart = 1e3;
+    Nvstart = 5e3;
+    Nint = 1e2;
     acnt = 0;
     uvels = zeros(KT,KT,3);
     vvels = zeros(KT,KT,3);
@@ -71,8 +71,8 @@ function wwt_maker(K,Llx,tf)
             uphys = ifft2(reshape(un,KT,KT));            
             if jj>=Nvstart
                 fac = conj(uphys)./(uphys.^2+1e-5);
-                Dux = real(ifft2(reshape(Dx.*un(:),KT,KT)));
-                Duy = real(ifft2(reshape(Dy.*un(:),KT,KT)));
+                Dux = ifft2(reshape(Dx.*un(:),KT,KT));
+                Duy = ifft2(reshape(Dy.*un(:),KT,KT));
                 cind = mod(jj-Nvstart,3)+1;
                 uvels(:,:,cind) = imag(Dux.*fac);
                 vvels(:,:,cind) = imag(Duy.*fac);        
