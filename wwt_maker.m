@@ -43,9 +43,9 @@ function wwt_maker(K,Llx,tf)
     uavg = zeros(KT^2,1);
     Ncnt = [];
     
-    Nstart = 1e3;
-    Nvstart = 5e3;
-    Nint = 1e2;
+    Nstart = 1e4;
+    Nvstart = 5e4;
+    Nint = 1e3;
     acnt = 0;
     uvels = zeros(KT,KT,3);
     vvels = zeros(KT,KT,3);
@@ -62,7 +62,7 @@ function wwt_maker(K,Llx,tf)
     Xpts(3:3:Ktot) = Xlft;
     [xpaths(:,:),ypaths(:,:)] = meshgrid(Xpts);
     tftle = 0;
-    DMDmat = zeros(KT^2,Nsteps/Nint);
+    DMDmat = zeros(KT^2,(Nsteps-Nstart)/Nint);
     
     for jj=1:Nsteps
         k1 = dt*nonlin(un,f0,KT);
@@ -119,18 +119,33 @@ function wwt_maker(K,Llx,tf)
         iSig = diag(idSig);
         
         V2 = U'*V2*W*iSig;
-        [evecs,evals] = eigs(V2,acnt);
+        [evecs,evals] = eigs(V2,acnt-1);
         
         evecs = U*evecs;
-        
+        devals = diag(evals);
+        [~,indsmax] = max(real(devals));
+        disp(devals(indsmax(1)))
         figure(6)
-        imagesc(Xmesh,Xmesh,reshape(abs(evecs(:,1)),KT,KT))
-        
+        imagesc(Xmesh,Xmesh,reshape(abs(evecs(:,indsmax(1))),KT,KT))
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
+    
         figure(7)
-        imagesc(Xmesh,Xmesh,reshape(abs(evecs(:,2)),KT,KT))
-                
+        imagesc(Xmesh,Xmesh,reshape(angle(evecs(:,indsmax(1))),KT,KT))
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
+            
         figure(8)
-        scatter(real(diag(evals)),imag(diag(evals)),10,'filled')
+        scatter(real(devals),imag(devals),10,'filled')
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$\mbox{Re}(\lambda)$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\mbox{Im}(\lambda)$','Interpreter','LaTeX','FontSize',30)    
+    
     end
     
     ufin = ifft2(reshape(un,KT,KT));

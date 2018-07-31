@@ -1,9 +1,11 @@
  \documentclass[a4paper,11pt]{article}
-\usepackage{epstopdf, epsfig}
+
 \usepackage{amsmath}
 \usepackage{amssymb}
 %\usepackage{amsthm}
 \usepackage{graphicx}
+\usepackage{epstopdf}
+\epstopdfsetup{update}
 %\usepackage{caption}
 %\usepackage{subcaption}
 
@@ -164,11 +166,11 @@ With this and the other stated choices in the paper, we get the following figure
 \begin{figure}
 \centering
 \begin{tabular}{c}
-\includegraphics[width=.95\textwidth]{amplitude_K_128_Lx_128_tf_1pt5e4} \\
+\includegraphics[width=.7\textwidth]{amplitude_K_128_Lx_128_tf_1pt5e4} \\
 (a) \\
-\includegraphics[width=.95\textwidth]{phase_K_128_Lx_128_tf_1pt5e4} \\
+\includegraphics[width=.7\textwidth]{phase_K_128_Lx_128_tf_1pt5e4} \\
  (b) \\
-\includegraphics[width=.95\textwidth]{ftle_K_128_Lx_128_tf_1pt5e4} \\
+\includegraphics[width=.7\textwidth]{ftle_K_128_Lx_128_tf_1pt5e4} \\
 (c)
 \end{tabular}
 \caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), phase $\mbox{arg}\left\{\psi(x,y,t_{f})\right\}$ (b), and FTLE field (c).  Note, while the flow is no longer strictly symmetric, the FTLE field still shows a strong remnant of it.}
@@ -177,11 +179,25 @@ With this and the other stated choices in the paper, we get the following figure
 \begin{figure}[!h]
 \centering
 \begin{tabular}{c}
-\includegraphics[width=.95\textwidth]{action_cascade_K_128_Lx_128_tf_1pt5e4} \\ 
+\includegraphics[width=.7\textwidth]{action_cascade_K_128_Lx_128_tf_1pt5e4} \\ 
 (a) \\
-\includegraphics[width=.95\textwidth]{np_count_K_128_Lx_128_tf_1pt5e4}\\
+\includegraphics[width=.7\textwidth]{np_count_K_128_Lx_128_tf_1pt5e4}\\
 (b)
 \end{tabular}
 \caption{The wave action $N(|k|)$ (a), and `particle count' $N_{p(t)}$ (b) .  An argument can be made that the plot of the particle count $N_{p}$ shows roughly when the system is in equilibrium. If you squint, and in some ways that's all Nazarenko and company do, you can see the right cascade rate in (a).}
 \end{figure}
+
+\begin{figure}
+\centering
+\begin{tabular}{c}
+\includegraphics[width=.7\textwidth]{dmd_amplitude_K_128_Lx_128_tf_1pt5e4} \\
+(a) \\
+\includegraphics[width=.7\textwidth]{dmd_phase_K_128_Lx_128_tf_1pt5e4} \\
+ (b) \\
+\includegraphics[width=.7\textwidth]{dmd_spectrum_K_128_Lx_128_tf_1pt5e4} \\
+(c)
+\end{tabular}
+\caption{The amplitude (a) and phase (b) of the most unstable mode from the DMD, and the associated spectrum of the DMD (c).}
+\end{figure}
+
 \end{document}
