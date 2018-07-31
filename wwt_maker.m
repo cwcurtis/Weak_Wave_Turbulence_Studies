@@ -31,22 +31,21 @@ function wwt_maker(K,Llx,tf)
     Eop = exp(dt*Lap);
 
     f0 = zeros(KT^2,1);
-    
-    ksq = sqrt( ( (kron(ones(KT,1),(-K+1:K)')).^2 + (kron((-K+1:K)',ones(KT,1))).^2) );
-    indsl = ksq >= Kl;
-    indsh = ksq <= Kh;
+    ksq = ( (kron(ones(KT,1),[0:K -K+1:-1]')).^2 + (kron([0:K -K+1:-1]',ones(KT,1))).^2) ;
+    indsl = ksq >= Kl^2;
+    indsh = ksq <  Kh^2;
     indsc = logical(indsl.*indsh);
     f0(indsc) = 1;
     f0 = reshape(f0,KT,KT);
-    f0 = f0c*ifftshift(f0);
+    f0 = f0c*f0;
     
     un = zeros(KT^2,1);
     uavg = zeros(KT^2,1);
     Ncnt = [];
     
-    Nstart = 1e4;
-    Nvstart = 5e4;
-    Nint = 1e3;
+    Nstart = 1e3;
+    Nvstart = 5e3;
+    Nint = 1e2;
     acnt = 0;
     uvels = zeros(KT,KT,3);
     vvels = zeros(KT,KT,3);
@@ -166,6 +165,7 @@ function uout = nonlin(un,f0,KT)
     %phi = exp(-1i*2*pi*rand);
     ang = 2*pi*rand;
     unl = unl + (cos(ang)-1i*sin(ang))*f0;
+    
     uout = unl(:);
 end
 
