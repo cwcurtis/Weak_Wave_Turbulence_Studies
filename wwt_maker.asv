@@ -44,9 +44,9 @@ function wwt_maker(K,Llx,tf)
     uavg = zeros(KT^2,1);
     Ncnt = [];
     
-    Nstart = 1e4;
-    Nvstart = 5e4;
-    Nint = 1e3;
+    Nstart = 1e3;
+    Nvstart = 5e3;
+    Nint = 1e2;
     acnt = 0;
     uvels = zeros(KT,KT,3);
     vvels = zeros(KT,KT,3);
@@ -113,25 +113,15 @@ function wwt_maker(K,Llx,tf)
         
         V1 = DMDmat(:,1:end-1);
         V2 = DMDmat(:,2:end);
-        [U,Sig,W] = svd(V1,'econ');
-        idSig = 1./diag(Sig);
-        indsrmv = isinf(idSig);
-        idSig(indsrmv) = 0;
-        iSig = diag(idSig);
-        
+        [U,Sig,W] = svd(V1);
+        dSig = diag(Sig);
+        iSig = diag(1/dSig);
         V2 = U'*V2*W*iSig;
-        [evecs,evals] = eigs(V2,acnt);
-        
+        [evals,evecs] = eigs(V2,5);
         evecs = U*evecs;
         
         figure(6)
-        imagesc(Xmesh,Xmesh,reshape(abs(evecs(:,1)),KT,KT))
-        
-        figure(7)
-        imagesc(Xmesh,Xmesh,reshape(abs(evecs(:,2)),KT,KT))
-                
-        figure(8)
-        scatter(real(diag(evals)),imag(diag(evals)),10,'filled')
+        surf(Xmesh,Xmesh,)
     end
     
     ufin = ifft2(reshape(un,KT,KT));
