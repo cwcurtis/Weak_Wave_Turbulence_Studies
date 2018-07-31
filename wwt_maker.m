@@ -33,7 +33,7 @@ function wwt_maker(K,Llx,tf)
     f0 = zeros(KT^2,1);
     ksq = ( (kron(ones(KT,1),[0:K -K+1:-1]')).^2 + (kron([0:K -K+1:-1]',ones(KT,1))).^2) ;
     indsl = ksq >= Kl^2;
-    indsh = ksq <  Kh^2;
+    indsh = ksq <=  Kh^2;
     indsc = logical(indsl.*indsh);
     f0(indsc) = 1;
     f0 = reshape(f0,KT,KT);
