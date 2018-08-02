@@ -10,13 +10,14 @@ function wwt_maker(K,Llx,tf)
     KT = 2*K;
     KTT = KT^2;
     f0c = KTT*2.1e-3; 
-    nuh = 2e-6;
-    nul = 1e-18;
+    nuh = 2e-5;
+    nul = 0;
     Xmesh = linspace(-Llx,Llx,KT+1);
     Xmesh = Xmesh(1:KT)';
+    dreg = 1e-9;
     
-    Kl = 4;
-    Kh = 6;
+    Kl = 60;
+    Kh = 63;
 
     Dd = 1i*pi/Llx*[0:K-1 0 -K+1:-1]';
     Dx = kron(Dd,ones(KT,1));
@@ -43,9 +44,9 @@ function wwt_maker(K,Llx,tf)
     uavg = zeros(KT^2,1);
     Ncnt = [];
     
-    Nstart = 1e4;
-    Nvstart = 5e4;
-    Nint = 1e3;
+    Nstart = 4e3;
+    Nvstart = 9e3;
+    Nint = 1e2;
     acnt = 0;
     uvels = zeros(KT,KT,3);
     vvels = zeros(KT,KT,3);
@@ -69,9 +70,9 @@ function wwt_maker(K,Llx,tf)
         k2 = dt*nonlin(Eop.*(un+k1),f0,KT);
         un = Eop.*(un+k1/2) + k2/2;
         if jj>=Nstart 
-            uphys = ifft2(reshape(un,KT,KT));            
+            uphys = ifft2(reshape(un,KT,KT));                  
             if jj>=Nvstart
-                fac = conj(uphys)./(uphys.^2+1e-5);
+                fac = conj(uphys)./(uphys.^2+dreg);
                 Dux = ifft2(reshape(Dx.*un(:),KT,KT));
                 Duy = ifft2(reshape(Dy.*un(:),KT,KT));
                 cind = mod(jj-Nvstart,3)+1;
@@ -84,7 +85,6 @@ function wwt_maker(K,Llx,tf)
             end
             if mod(jj,Nint)==0
                 uavg = uavg + abs(un.*conj(un))/KT^4;
-                uphys = ifft2(reshape(un,KT,KT));
                 nint = sum(sum(real(uphys.*conj(uphys))))*(1/KT)^2;
                 Ncnt = [Ncnt nint];
                 DMDmat(:,acnt+1) = uphys(:);
@@ -123,17 +123,36 @@ function wwt_maker(K,Llx,tf)
         
         evecs = U*evecs;
         devals = diag(evals);
-        [~,indsmax] = max(real(devals));
-        disp(devals(indsmax(1)))
+        [~,I] = sort(abs(devals));
+        devals = devals(I);
+        evecs = evecs(:,I);
+        
+        if devals(1) ~= 0
+            induse = 1;
+        else
+            induse = 2;
+        end
+        disp('Eval we study is:')
+        disp(devals(induse))
+        
+        efin = reshape(evecs(:,induse),KT,KT);
+        efreq = fft2(efin);
+        efac = conj(efin)./(efin.^2+dreg);
+        Dex = ifft2(reshape(Dx.*efreq(:),KT,KT));
+        Dey = ifft2(reshape(Dy.*efreq(:),KT,KT));
+        eu = fft2(imag(Dex.*efac));
+        ev = fft2(imag(Dey.*efac));    
+        evort = real(ifft2(reshape(Dy.*eu(:)-Dx.*ev(:),KT,KT)));
+            
         figure(6)
-        imagesc(Xmesh,Xmesh,reshape(abs(evecs(:,indsmax(1))),KT,KT))
+        imagesc(Xmesh,Xmesh,abs(efin))
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
         xlabel('$x$','Interpreter','LaTeX','FontSize',30)
         ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
     
         figure(7)
-        imagesc(Xmesh,Xmesh,reshape(angle(evecs(:,indsmax(1))),KT,KT))
+        imagesc(Xmesh,Xmesh,evort)
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
         xlabel('$x$','Interpreter','LaTeX','FontSize',30)
@@ -149,6 +168,12 @@ function wwt_maker(K,Llx,tf)
     end
     
     ufin = ifft2(reshape(un,KT,KT));
+    fac = conj(uphys)./(uphys.^2+dreg);
+    Dux = ifft2(reshape(Dx.*un(:),KT,KT));
+    Duy = ifft2(reshape(Dy.*un(:),KT,KT));
+    uv = fft2(imag(Dux.*fac));
+    vv = fft2(imag(Duy.*fac));    
+    vort = real(ifft2(reshape(Dy.*uv(:)-Dx.*vv(:),KT,KT)));
     
     figure(3)
     imagesc(Xmesh,Xmesh,abs(ufin))
@@ -158,7 +183,8 @@ function wwt_maker(K,Llx,tf)
     ylabel('$y$','Interpreter','LaTeX','FontSize',30)
     
     figure(4)
-    imagesc(Xmesh,Xmesh,angle(ufin))
+    %imagesc(Xmesh,Xmesh,angle(ufin))
+    imagesc(Xmesh,Xmesh,vort)
     h = set(gca,'FontSize',30);
     set(h,'Interpreter','LaTeX')
     xlabel('$x$','Interpreter','LaTeX','FontSize',30)
