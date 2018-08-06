@@ -85,16 +85,114 @@ We note that the question of what a `large' domain is is somewhat ambiguous in t
 \frac{1}{2}\frac{dN}{dt} = &  \mbox{Im}\left\{\int \gamma_{f}({\bf x},t) \psi^{\ast} d{\bf x} \right\}\\
 & - \int \psi^{\ast}\left(\nu_{h}\Delta^{2n}+\nu_{l}\tilde{\Delta}^{-2n}\right)\psi d{\bf x}
 \end{align*}
-so that the particle number, and thus length scale, can change with time.  Ultimately though, a quasi-equilibrium is achieved through the balance of injection due to the forcing $\gamma_{f}$ and the particle removal/energy dissipation due to the hyper and hypoviscosity.  
+so that the particle number, and thus length scale, can change with time.  Ultimately though, a quasi-equilibrium is achieved through the balance of injection due to the forcing $\gamma_{f}$ and the particle removal/energy dissipation due to the hyper/hypoviscosity.  
+
+By forcing the system starting from a zero-amplitude state, we hope to ultimately generate a weak-wave turbulence (WWT) state.  This is characterized as a nontrivial energy flux in wavenumber.  The associated isotropic energy density $E_{d}(k,t)$ is given by 
+\[
+E_{d}(k,t) = 2\pi k\omega(k)n(k,t), 
+\]
+where $\omega(k)$ is the dispersion relationship of the GPE, and $n(k)$ is given by 
+\[
+n(k,t) = \left< \left|a(\bk_{nm},t)\right|^{2}\right>, ~ \left|\bk_{nm}\right| = k.
+\]
+The brackets denote averaging, which in our case, assuming ergodicity, will correspond to temporally averaging the power spectra of the solution of the GPE.  
+
+Associated with the energy density is an affiliated energy flux $\epsilon$ so that 
+\[
+\pd_{t} E_{d} + \pd_{k}\epsilon \sim 0.
+\]
+It is one of the major achievements in the WWT theory that one can derive Boltzman like kinetic equations describing the evolution of $n(k,t)$ \cite{nazarenko}.  Thus, if we characterize the WWT state as one at which the energy density is in quasi-equilibrium so that $\pd_{t}E_{d}\sim 0$, which therefore implies that $\pd_{t}n(k,t)\sim 0$, we can then distinguish equilibrium profiles of $n(k,t)$ by whether $\epsilon \sim 0$ or $\epsilon \sim c$, where c is some constant.  The zero case corresponds to no energy flux, thereby describing a thermodynamically steady state associated with the equipartion of energy.  It is the non-zero energy flux states which distinguish WWT states, and those that we are most interested in studying.  
 
 \section*{Dynamic-Mode Decomposition}
-
+We briefly review the details of the DMD for completeness and to better explain later results.  In DMD, we assume that any time series of a dynamical quantity of interest, denoted by $\left\{\phi_{n}\right\}_{n=1}^{\infty}$, can be described through a linear process mediated via an operator, say $A$ so that 
+\[
+\phi_{n+1} = A \phi_{n}.  
+\] 
+We treat $A$ as essentially unknowable in any direct sense, but by using the affiliated matrices $V_{1}^{N}$, where
+\[
+V^{N}_{1} = \left\{\phi_{1} \cdots \phi_{N} \right\}
+\]
+and $V_{2}^{N} = AV_{1}^{N}$, and using a Singular Value Decomposition (SVD) on $V_{1}^{N}$ so that $V_{1}^{N} = U\Sigma W^{\dagger}$, we see that 
+\[
+U^{\dagger}AU = \tilde{S}, ~ \tilde{S} = U^{\dagger}V_{2}^{N}W\Sigma^{-1}.
+\]
+Thus by computing the associated eigenvalues and eigenvectors of $\tilde{S}$, say $\mu_{j}$ and $\tilde{\phi}_{j}$respectively, then for $N$ large enough with sufficiently controlled spacing in the time-series, these eigenvalues and eigenvectors will approximate those of $A$.  Likewise, this allows us to write the approximation 
+\[
+\phi_{n} = \sum_{j=1}^{N} b_{j}\mu_{j}^{n \delta t} U\tilde{\phi}_{j}
+\]
+where $\delta t$ represents the time spacing between elements of the time series.  Thus, by examining the terms $\left|\tilde{b}_{N}\right|$ where
+\[
+\tilde{b}_{N} = b_{j} \mu_{j}^{N \delta t},
+\]
+we can effectively rank the relative importance of the dynamic modes represented by $\tilde{\phi}_{j}$, thereby providing a method of reducing complicate data to a far smaller subspace of phenomena.  
 \section*{Characterizing Coherent States}
 
 \subsection*{Down-Scale Weak Turbulence Cascades}
+In this case, we take $k_{l}=4$, $k_{h}=6$, and $\gamma_{0}=2.1\times 10^{-3}$.  To recreate the WWT results of \cite{nazarenko2}, we keep both hypo and hyperviscosity in place.  The results of this are seen in Figure \ref{fig:ampcomplfwwt}.    Here, and using Figure \ref{fig:bmmagslfwwt} for guidance, we see that a single DMD mode carries the vast majority of the field, with the second most prominent mode far smaller in magnitude than the first.  While a degree of regularity is seen in the first DMD mode, there is no readily recognizable large scale structure, which is consistent with the dynamics being in the WWT regime with the specific formation of long-wavelength CSs being prohibited through the action of the hyopviscosity.
+\begin{figure}
+\centering
+\begin{tabular}{c}
+\includegraphics[width=.7\textwidth]{amplitude_wwt_K_128_Lx_128_tf_1pt5e4} \\
+(a) \\
+\includegraphics[width=.7\textwidth]{dmd1_amplitude_wwt_K_128_Lx_128_tf_1pt5e4} \\
+ (b) \\
+\includegraphics[width=.7\textwidth]{dmd2_amplitude_wwt_K_128_Lx_128_tf_1pt5e4} \\
+(c)
+\end{tabular}
+\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), and magnitudes of the first two most dominant DMD modes, (b) and (c) for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=2.1\times 10^{-3}$.  }
+\label{fig:ampcomplfwwt}
+\end{figure}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.7\textwidth]{dmd_mags_wwt_K_128_Lx_128_tf_1pt5e4}
+\caption{Plot of $\left|\tilde{b}_{N}\right|$ for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=2.1\times 10^{-3}$.}
+\label{fig:bmmagslfwwt}
+\end{figure}
+
+If we remove the hypoviscosity, thereby allowing for saturation in longer-wavelengths to occur, we see in Figure \ref{fig:ampcomplf} that coherent structures form, and are readily identifiable via examing the first two modes of the DMD.  We see in Figure \ref{fig:bmmagslf} that the first two modes carry the large majority of the weight in the DMD, thereby providing a ready lower dimensional representation of the dynamics.  
+\begin{figure}
+\centering
+\begin{tabular}{c}
+\includegraphics[width=.7\textwidth]{amplitude_K_128_Lx_128_tf_1pt5e4} \\
+(a) \\
+\includegraphics[width=.7\textwidth]{dmd1_amplitude_K_128_Lx_128_tf_1pt5e4} \\
+ (b) \\
+\includegraphics[width=.7\textwidth]{dmd2_amplitude_K_128_Lx_128_tf_1pt5e4} \\
+(c)
+\end{tabular}
+\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), and magnitudes of the first two most dominant DMD modes, (b) and (c) for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=2.1\times 10^{-3}$.  Note the relative increase in the magnitude of the second most significant DMD mode.}
+\label{fig:ampcomplf}
+\end{figure}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.7\textwidth]{dmd_mags_K_128_Lx_128_tf_1pt5e4}
+\caption{Plot of $\left|\tilde{b}_{N}\right|$ for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=2.1\times 10^{-3}$.}
+\label{fig:bmmagslf}
+\end{figure}
 
 \subsection*{Long-Wavelength Saturation and Coherent States}
+In this case, we let $k_{l}=60$ and $k_{h}=63$, so that the injection range of the forcing is at a relatively high-frequency.  We remove the hypoviscosity, thereby allowing for the saturation of energy at long wavelengths.  Increasing the forcing amplitude to $\gamma_{0}=1.6\times 10^{-3}$, we allow the simulation to run up to $t_{f}=1.5\times 10^{4}$ units of non-dimensional time.  We perform a DMD and compare the magnitude $\left|\psi\right|$ to that of the first two most dominant dynamic modes in Figure \ref{fig:ampcomphf}
+\begin{figure}
+\centering
+\begin{tabular}{c}
+\includegraphics[width=.7\textwidth]{amplitude_hfforce_K_256_Lx_128_tf_1pt5e4} \\
+(a) \\
+\includegraphics[width=.7\textwidth]{dmd1_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4} \\
+ (b) \\
+\includegraphics[width=.7\textwidth]{dmd2_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4} \\
+(c)
+\end{tabular}
+\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), and magnitudes of the  first two most dominant DMD modes, (b) and (c) for $k_{l}=60$, $k_{h}=63$, $\gamma_{0}=1.6\times 10^{-3}$. }
+\label{fig:ampcomphf}
+\end{figure}
 
+As can be seen, the two most dominant DMD modes clearly isolate vortices while also displaying an overall more coherent, long-wavelength driven structure which would be affiliated with the notion of a CSs put forward at the beginning of the paper.  If we likewise look at a plot of $\left|\tilde{b}_{N}\right|$ in Figure \ref{fig:bmmagshf}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=.7\textwidth]{dmd_mags_hfforce_K_256_Lx_128_tf_1pt5e4}
+\caption{Plot of $\left|\tilde{b}_{N}\right|$ for $k_{l}=60$, $k_{h}=63$, $\gamma_{0}=1.6\times 10^{-3}$.}
+\label{fig:bmmagshf}
+\end{figure}
 \section*{Conclusion}
 
 \section*{Appendix}

@@ -18,8 +18,8 @@ function wwt_maker(K,Llx,tf)
     Xmesh = Xmesh(1:KT)';
     dreg = 1e-2;
     
-    Kl = 60;
-    Kh = 63;
+    Kl = 4;
+    Kh = 6;
 
     Dd = 1i*pi/Llx*[0:K -K+1:-1]';
     Dx = kron(Dd,ones(KT,1));
