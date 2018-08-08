@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.10.8)  8 AUG 2018 14:38
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.10.8)  8 AUG 2018 14:43
 entering extended mode
 **D:/My*Documents/Desktop/wwt_Git_Clone/write_up/coherent_structures_dmd.tex
 ("D:/My Documents/Desktop/wwt_Git_Clone/write_up/coherent_structures_dmd.tex"
@@ -314,10 +314,6 @@ md1_four_vortex_tf_20_K_256_Llx_128-eps-converted-to.pdf> <D:/My Documents/Desk
 top/wwt_Git_Clone/write_up/dmd2_four_vortex_tf_20_K_256_Llx_128-eps-converted-t
 o.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/dmd_mags_tf_20_K_256_Llx
 _128-eps-converted-to.pdf>]
-
-LaTeX Warning: Reference `fig:bmmagslfwwt' on page 6 undefined on input line 16
-8.
-
 Package epstopdf Info: Source file: <amplitude_wwt_K_128_Lx_128_tf_1pt5e4.eps>
 (epstopdf)                    date: 2018-08-06 09:04:41
 (epstopdf)                    size: 173684 bytes
@@ -612,34 +608,31 @@ _1pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/d
 md_mags_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf>]
 ("D:\My Documents\Desktop\wwt_Git_Clone\write_up\coherent_structures_dmd.bbl"
 [10]) [11]
-("D:\My Documents\Desktop\wwt_Git_Clone\write_up\coherent_structures_dmd.aux")
-
-LaTeX Warning: There were undefined references.
-
- ) 
+("D:\My Documents\Desktop\wwt_Git_Clone\write_up\coherent_structures_dmd.aux") 
+) 
 Here is how much of TeX's memory you used:
- 2521 strings out of 493921
- 36602 string characters out of 3147276
+ 2520 strings out of 493921
+ 36585 string characters out of 3147276
  91881 words of memory out of 3000000
- 5755 multiletter control sequences out of 15000+200000
+ 5754 multiletter control sequences out of 15000+200000
  12319 words of font info for 46 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  42i,12n,26p,1295b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/symbols/msbm10.pfb>
-Output written on coherent_structures_dmd.pdf (11 pages, 1035303 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb>
+Output written on coherent_structures_dmd.pdf (11 pages, 1033119 bytes).
 PDF statistics:
  231 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
