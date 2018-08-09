@@ -12,7 +12,7 @@ function wwt_maker(K,Llx,tf)
 
     f0c = KTT*2.1e-3; 
     nuh = 2e-6;
-    nul = 1e-18;
+    nul = 0;
 
     Xmesh = linspace(-Llx,Llx,KT+1);
     Xmesh = Xmesh(1:KT)';
@@ -47,7 +47,7 @@ function wwt_maker(K,Llx,tf)
     Ncnt = [];
     
     Nstart = 1.4e5;
-    Nint = 50;
+    Nint = 25;
     acnt = 0;
     
     %{
@@ -98,7 +98,7 @@ function wwt_maker(K,Llx,tf)
                 uavg = uavg + abs(un.*conj(un))/KT^4;
                 nint = sum(sum(real(uphys.*conj(uphys))))*(1/KT)^2;
                 Ncnt = [Ncnt nint];
-                DMDmat(:,acnt+1) = uphys(:);
+                DMDmat(:,acnt+1) = abs(uphys(:));
                 acnt = acnt + 1;
             end
         end
@@ -107,7 +107,7 @@ function wwt_maker(K,Llx,tf)
     if acnt > 0
         uavg = fftshift(reshape(uavg/acnt,KT,KT));
         [krad,kavg] = mat_avg(uavg,K);
-        
+        %{
         figure(1)
         plot(log10(pi*krad/Llx),log10(2*pi*(pi*krad/Llx).*kavg),'k-','LineWidth',2)
         h = set(gca,'FontSize',30);
@@ -121,7 +121,7 @@ function wwt_maker(K,Llx,tf)
         set(h,'Interpreter','LaTeX')
         xlabel('$\tilde{t}$','Interpreter','LaTeX','FontSize',30)
         ylabel('$\log_{10} N_{p}$','Interpreter','LaTeX','FontSize',30)      
-        
+        %}
         V1 = DMDmat(:,1:end-1);
         V2 = DMDmat(:,2:end);
         [U,Sig,W] = svd(V1,'econ');
@@ -139,8 +139,8 @@ function wwt_maker(K,Llx,tf)
         mdmags = (devals.^(dt*Nint*acnt)).*bspread;
         [~,Iinds] = sort(abs(mdmags),'descend');        
               
-        efin1 = reshape(evecs(:,Iinds(1)),KT,KT);
-        efin2 = reshape(evecs(:,Iinds(2)),KT,KT);
+        %efin1 = reshape(evecs(:,Iinds(1)),KT,KT);
+        %efin2 = reshape(evecs(:,Iinds(2)),KT,KT);
         
         %{
         efreq = fft2(efin);
@@ -152,20 +152,14 @@ function wwt_maker(K,Llx,tf)
         evort = real(ifft2(reshape(Dy.*eu(:)-Dx.*ev(:),KT,KT)));
         %}
                 
-        figure(3)
-        imagesc(Xmesh,Xmesh,abs(mdmags(Iinds(1))*efin1))
-        h = set(gca,'FontSize',30);
-        set(h,'Interpreter','LaTeX')
-        xlabel('$x$','Interpreter','LaTeX','FontSize',30)
-        ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
-    
-        figure(4)
-        imagesc(Xmesh,Xmesh,abs(mdmags(Iinds(2))*efin2))
-        h = set(gca,'FontSize',30);
-        set(h,'Interpreter','LaTeX')
-        xlabel('$x$','Interpreter','LaTeX','FontSize',30)
-        ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
-        
+        for mm=1:10        
+            figure(mm)
+            surf(Xmesh,Xmesh,abs(mdmags(Iinds(mm))*reshape(evecs(:,Iinds(mm)),KT,KT)),'LineStyle','none')
+            h = set(gca,'FontSize',30);
+            set(h,'Interpreter','LaTeX')
+            xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+            ylabel('$y$','Interpreter','LaTeX','FontSize',30)        
+        end
         %{
 
         figure(4)
@@ -184,7 +178,8 @@ function wwt_maker(K,Llx,tf)
        
         %}
         
-        figure(5)
+        %{
+        figure(3)
         %{
         hold on
         for jj=1:length(bspread)            
@@ -196,20 +191,22 @@ function wwt_maker(K,Llx,tf)
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
         xlabel('$n$','Interpreter','LaTeX','FontSize',30)
-        ylabel('$\mbox{log}_{10}|b_{n}|$','Interpreter','LaTeX','FontSize',30)    
+        ylabel('$\mbox{log}_{10}|\tilde{b}_{N}|$','Interpreter','LaTeX','FontSize',30)    
         
-        figure(6)
+        figure(4)
         plot(1:length(devals),log10(abs(devals(Iinds))),'k','LineWidth',2)
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
-        xlabel('$\mbox{Re}(\lambda)$','Interpreter','LaTeX','FontSize',30)
-        ylabel('$\mbox{Im}(\lambda)$','Interpreter','LaTeX','FontSize',30)    
+        xlabel('$n$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\mbox{log}_{10}|\mu_{n}|$','Interpreter','LaTeX','FontSize',30)    
         
-        [~,I] = sort(abs(bspread),'descend');
-        
-        figure(7)
-        plot(1:length(bspread),log10(abs(bspread(I))),'LineWidth',2)
-    
+        figure(5)
+        plot(1:length(bspread),log10(abs(bspread(Iinds))),'k','LineWidth',2)
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$n$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\mbox{log}_{10}|b_{n}|$','Interpreter','LaTeX','FontSize',30)    
+        %}
     end
     
     ufin = ifft2(reshape(un,KT,KT));
@@ -222,8 +219,8 @@ function wwt_maker(K,Llx,tf)
     vort = real(ifft2(reshape(Dy.*uv(:)-Dx.*vv(:),KT,KT)));
     %}
     
-    figure(8)
-    imagesc(Xmesh,Xmesh,abs(ufin))
+    figure(11)
+    surf(Xmesh,Xmesh,abs(ufin),'LineStyle','none')
     h = set(gca,'FontSize',30);
     set(h,'Interpreter','LaTeX')
     xlabel('$x$','Interpreter','LaTeX','FontSize',30)

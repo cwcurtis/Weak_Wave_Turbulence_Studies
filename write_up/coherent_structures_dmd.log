@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.10.8)  8 AUG 2018 14:43
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.10.8)  9 AUG 2018 09:23
 entering extended mode
 **D:/My*Documents/Desktop/wwt_Git_Clone/write_up/coherent_structures_dmd.tex
 ("D:/My Documents/Desktop/wwt_Git_Clone/write_up/coherent_structures_dmd.tex"
@@ -228,7 +228,7 @@ Package epstopdf Info: Source file: <four_vortex_tf_20_K_256_Llx_128.eps>
 (epstopdf)                    size: 345906 bytes
 (epstopdf)             Output file: <four_vortex_tf_20_K_256_Llx_128-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2018-08-08 14:07:10
+(epstopdf)                    date: 2018-08-09 09:19:37
 (epstopdf)                    size: 235511 bytes
 (epstopdf)             Command: <epstopdf --outfile=four_vortex_tf_20_K_256_Llx
 _128-eps-converted-to.pdf four_vortex_tf_20_K_256_Llx_128.eps>
@@ -242,13 +242,13 @@ df)
  <use four_vortex_tf_20_K_256_Llx_128-eps-converted-to.pdf>
 Package pdftex.def Info: four_vortex_tf_20_K_256_Llx_128-eps-converted-to.pdf u
 sed on input line 152.
-(pdftex.def)             Requested size: 187.20154pt x 113.31592pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <dmd1_four_vortex_tf_20_K_256_Llx_128.eps>
 (epstopdf)                    date: 2018-08-08 10:55:50
 (epstopdf)                    size: 184588 bytes
 (epstopdf)             Output file: <dmd1_four_vortex_tf_20_K_256_Llx_128-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-08-08 14:07:52
+(epstopdf)                    date: 2018-08-09 09:19:38
 (epstopdf)                    size: 135948 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd1_four_vortex_tf_20_K_25
 6_Llx_128-eps-converted-to.pdf dmd1_four_vortex_tf_20_K_256_Llx_128.eps>
@@ -262,13 +262,13 @@ ype pdf)
  <use dmd1_four_vortex_tf_20_K_256_Llx_128-eps-converted-to.pdf>
 Package pdftex.def Info: dmd1_four_vortex_tf_20_K_256_Llx_128-eps-converted-to.
 pdf used on input line 152.
-(pdftex.def)             Requested size: 187.20154pt x 113.31592pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <dmd2_four_vortex_tf_20_K_256_Llx_128.eps>
 (epstopdf)                    date: 2018-08-08 10:53:48
 (epstopdf)                    size: 1601194 bytes
 (epstopdf)             Output file: <dmd2_four_vortex_tf_20_K_256_Llx_128-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-08-08 14:07:54
+(epstopdf)                    date: 2018-08-09 09:19:39
 (epstopdf)                    size: 130155 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd2_four_vortex_tf_20_K_25
 6_Llx_128-eps-converted-to.pdf dmd2_four_vortex_tf_20_K_256_Llx_128.eps>
@@ -282,13 +282,13 @@ ype pdf)
  <use dmd2_four_vortex_tf_20_K_256_Llx_128-eps-converted-to.pdf>
 Package pdftex.def Info: dmd2_four_vortex_tf_20_K_256_Llx_128-eps-converted-to.
 pdf used on input line 154.
-(pdftex.def)             Requested size: 187.20154pt x 113.31592pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <dmd_mags_tf_20_K_256_Llx_128.eps>
 (epstopdf)                    date: 2018-08-08 10:52:20
 (epstopdf)                    size: 27006 bytes
 (epstopdf)             Output file: <dmd_mags_tf_20_K_256_Llx_128-eps-converted
 -to.pdf>
-(epstopdf)                    date: 2018-08-08 14:07:11
+(epstopdf)                    date: 2018-08-09 09:19:40
 (epstopdf)                    size: 9853 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd_mags_tf_20_K_256_Llx_12
 8-eps-converted-to.pdf dmd_mags_tf_20_K_256_Llx_128.eps>
@@ -302,9 +302,9 @@ File: dmd_mags_tf_20_K_256_Llx_128-eps-converted-to.pdf Graphic file (type pdf)
  <use dmd_mags_tf_20_K_256_Llx_128-eps-converted-to.pdf>
 Package pdftex.def Info: dmd_mags_tf_20_K_256_Llx_128-eps-converted-to.pdf used
  on input line 154.
-(pdftex.def)             Requested size: 187.20154pt x 113.31592pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 
-Overfull \hbox (18.05307pt too wide) in paragraph at lines 151--157
+Overfull \hbox (19.84604pt too wide) in paragraph at lines 151--157
  [][] 
  []
 
@@ -315,193 +315,191 @@ top/wwt_Git_Clone/write_up/dmd2_four_vortex_tf_20_K_256_Llx_128-eps-converted-t
 o.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/dmd_mags_tf_20_K_256_Llx
 _128-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <amplitude_wwt_K_128_Lx_128_tf_1pt5e4.eps>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 173684 bytes
+(epstopdf)                    date: 2018-08-09 09:18:03
+(epstopdf)                    size: 9806680 bytes
 (epstopdf)             Output file: <amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 20155 bytes
+(epstopdf)                    date: 2018-08-09 09:19:45
+(epstopdf)                    size: 949125 bytes
 (epstopdf)             Command: <epstopdf --outfile=amplitude_wwt_K_128_Lx_128_
 tf_1pt5e4-eps-converted-to.pdf amplitude_wwt_K_128_Lx_128_tf_1pt5e4.eps>
 (epstopdf)             \includegraphics on input line 172.
 Package epstopdf Info: Output file is already uptodate.
 
-<amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=55, 697.60625pt 
-x 483.8075pt>
+<amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=55, 714.67pt x 4
+32.61626pt>
 File: amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.
 pdf used on input line 172.
-(pdftex.def)             Requested size: 187.20154pt x 129.82509pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <dmd1_amplitude_wwt_K_128_Lx_128_tf_1pt5e4.
 eps>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 157589 bytes
+(epstopdf)                    date: 2018-08-09 09:16:52
+(epstopdf)                    size: 9614101 bytes
 (epstopdf)             Output file: <dmd1_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-
 eps-converted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 16532 bytes
+(epstopdf)                    date: 2018-08-09 09:19:50
+(epstopdf)                    size: 1028995 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd1_amplitude_wwt_K_128_Lx
 _128_tf_1pt5e4-eps-converted-to.pdf dmd1_amplitude_wwt_K_128_Lx_128_tf_1pt5e4.e
 ps>
 (epstopdf)             \includegraphics on input line 172.
 Package epstopdf Info: Output file is already uptodate.
 
-<dmd1_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=56, 697.606
-25pt x 483.8075pt>
+<dmd1_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=56, 714.67p
+t x 432.61626pt>
 File: dmd1_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic fi
 le (type pdf)
 
 <use dmd1_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: dmd1_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converte
 d-to.pdf used on input line 172.
-(pdftex.def)             Requested size: 187.20154pt x 129.82509pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <dmd2_amplitude_wwt_K_128_Lx_128_tf_1pt5e4.
 eps>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 239161 bytes
+(epstopdf)                    date: 2018-08-09 09:17:26
+(epstopdf)                    size: 9177783 bytes
 (epstopdf)             Output file: <dmd2_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-
 eps-converted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 19864 bytes
+(epstopdf)                    date: 2018-08-09 09:19:55
+(epstopdf)                    size: 931854 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd2_amplitude_wwt_K_128_Lx
 _128_tf_1pt5e4-eps-converted-to.pdf dmd2_amplitude_wwt_K_128_Lx_128_tf_1pt5e4.e
 ps>
 (epstopdf)             \includegraphics on input line 174.
 Package epstopdf Info: Output file is already uptodate.
 
-<dmd2_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=57, 697.606
-25pt x 483.8075pt>
+<dmd2_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=57, 714.67p
+t x 432.61626pt>
 File: dmd2_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic fi
 le (type pdf)
 
 <use dmd2_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: dmd2_amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converte
 d-to.pdf used on input line 174.
-(pdftex.def)             Requested size: 187.20154pt x 129.82509pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <dmd_mags_wwt_K_128_Lx_128_tf_1pt5e4.eps>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 242919 bytes
+(epstopdf)                    date: 2018-08-09 09:18:33
+(epstopdf)                    size: 26803 bytes
 (epstopdf)             Output file: <dmd_mags_wwt_K_128_Lx_128_tf_1pt5e4-eps-co
 nverted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 7464 bytes
+(epstopdf)                    date: 2018-08-09 09:19:55
+(epstopdf)                    size: 9748 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd_mags_wwt_K_128_Lx_128_t
 f_1pt5e4-eps-converted-to.pdf dmd_mags_wwt_K_128_Lx_128_tf_1pt5e4.eps>
 (epstopdf)             \includegraphics on input line 174.
 Package epstopdf Info: Output file is already uptodate.
 
-<dmd_mags_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=58, 697.60625pt x
- 483.8075pt>
+<dmd_mags_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=58, 714.67pt x 43
+2.61626pt>
 File: dmd_mags_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (ty
 pe pdf)
  <use dmd_mags_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: dmd_mags_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.p
 df used on input line 174.
-(pdftex.def)             Requested size: 187.20154pt x 129.82509pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 
-Overfull \hbox (18.05307pt too wide) in paragraph at lines 171--177
+Overfull \hbox (19.84604pt too wide) in paragraph at lines 171--177
  [][] 
  []
 
 Package epstopdf Info: Source file: <amplitude_K_128_Lx_128_tf_1pt5e4.eps>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 166785 bytes
+(epstopdf)                    date: 2018-08-09 08:53:10
+(epstopdf)                    size: 10588175 bytes
 (epstopdf)             Output file: <amplitude_K_128_Lx_128_tf_1pt5e4-eps-conve
 rted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 18839 bytes
+(epstopdf)                    date: 2018-08-09 09:20:03
+(epstopdf)                    size: 958148 bytes
 (epstopdf)             Command: <epstopdf --outfile=amplitude_K_128_Lx_128_tf_1
 pt5e4-eps-converted-to.pdf amplitude_K_128_Lx_128_tf_1pt5e4.eps>
 (epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
-<amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=59, 697.60625pt x 48
-3.8075pt>
+<amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=59, 714.67pt x 474.7
+7374pt>
 File: amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (type 
 pdf)
  <use amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf 
 used on input line 185.
-(pdftex.def)             Requested size: 187.20154pt x 129.82509pt.
+(pdftex.def)             Requested size: 183.59802pt x 121.96764pt.
 Package epstopdf Info: Source file: <dmd1_amplitude_K_128_Lx_128_tf_1pt5e4.eps>
 
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 138633 bytes
+(epstopdf)                    date: 2018-08-09 08:52:02
+(epstopdf)                    size: 6398890 bytes
 (epstopdf)             Output file: <dmd1_amplitude_K_128_Lx_128_tf_1pt5e4-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 11866 bytes
+(epstopdf)                    date: 2018-08-09 09:20:07
+(epstopdf)                    size: 890874 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd1_amplitude_K_128_Lx_128
 _tf_1pt5e4-eps-converted-to.pdf dmd1_amplitude_K_128_Lx_128_tf_1pt5e4.eps>
 (epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
-<dmd1_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=60, 697.60625pt
- x 483.8075pt>
+<dmd1_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=60, 714.67pt x 
+474.77374pt>
 File: dmd1_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (
 type pdf)
-
-<use dmd1_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
+ <use dmd1_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: dmd1_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to
 .pdf used on input line 185.
-(pdftex.def)             Requested size: 187.20154pt x 129.82509pt.
+(pdftex.def)             Requested size: 183.59802pt x 121.96764pt.
 Package epstopdf Info: Source file: <dmd2_amplitude_K_128_Lx_128_tf_1pt5e4.eps>
 
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 149629 bytes
+(epstopdf)                    date: 2018-08-09 08:51:47
+(epstopdf)                    size: 11327195 bytes
 (epstopdf)             Output file: <dmd2_amplitude_K_128_Lx_128_tf_1pt5e4-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 13863 bytes
+(epstopdf)                    date: 2018-08-09 09:20:19
+(epstopdf)                    size: 1015384 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd2_amplitude_K_128_Lx_128
 _tf_1pt5e4-eps-converted-to.pdf dmd2_amplitude_K_128_Lx_128_tf_1pt5e4.eps>
 (epstopdf)             \includegraphics on input line 187.
 Package epstopdf Info: Output file is already uptodate.
 
-<dmd2_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=61, 697.60625pt
- x 483.8075pt>
+<dmd2_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=61, 714.67pt x 
+474.77374pt>
 File: dmd2_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (
 type pdf)
-
-<use dmd2_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
+ <use dmd2_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: dmd2_amplitude_K_128_Lx_128_tf_1pt5e4-eps-converted-to
 .pdf used on input line 187.
-(pdftex.def)             Requested size: 187.20154pt x 129.82509pt.
+(pdftex.def)             Requested size: 183.59802pt x 121.96764pt.
 Package epstopdf Info: Source file: <dmd_mags_K_128_Lx_128_tf_1pt5e4.eps>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 242906 bytes
+(epstopdf)                    date: 2018-08-09 08:53:36
+(epstopdf)                    size: 26560 bytes
 (epstopdf)             Output file: <dmd_mags_K_128_Lx_128_tf_1pt5e4-eps-conver
 ted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 7467 bytes
+(epstopdf)                    date: 2018-08-09 09:20:19
+(epstopdf)                    size: 9726 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd_mags_K_128_Lx_128_tf_1p
 t5e4-eps-converted-to.pdf dmd_mags_K_128_Lx_128_tf_1pt5e4.eps>
 (epstopdf)             \includegraphics on input line 187.
 Package epstopdf Info: Output file is already uptodate.
 
-<dmd_mags_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=62, 697.60625pt x 483
-.8075pt>
+<dmd_mags_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=62, 714.67pt x 474.77
+374pt>
 File: dmd_mags_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (type p
 df)
  <use dmd_mags_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: dmd_mags_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf u
 sed on input line 187.
-(pdftex.def)             Requested size: 187.20154pt x 129.82509pt.
+(pdftex.def)             Requested size: 183.59802pt x 121.96764pt.
 
-Overfull \hbox (18.05307pt too wide) in paragraph at lines 184--190
+Overfull \hbox (19.84604pt too wide) in paragraph at lines 184--190
  [][] 
  []
 
 Package epstopdf Info: Source file: <amplitude_hfforce_K_256_Lx_128_tf_1pt5e4.e
 ps>
-(epstopdf)                    date: 2018-08-03 18:10:35
-(epstopdf)                    size: 315273 bytes
+(epstopdf)                    date: 2018-08-08 17:10:04
+(epstopdf)                    size: 225377 bytes
 (epstopdf)             Output file: <amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-e
 ps-converted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 53013 bytes
+(epstopdf)                    date: 2018-08-09 09:20:20
+(epstopdf)                    size: 49202 bytes
 (epstopdf)             Command: <epstopdf --outfile=amplitude_hfforce_K_256_Lx_
 128_tf_1pt5e4-eps-converted-to.pdf amplitude_hfforce_K_256_Lx_128_tf_1pt5e4.eps
 >
@@ -509,22 +507,22 @@ ps-converted-to.pdf>
 Package epstopdf Info: Output file is already uptodate.
 
 <amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=63, 714.67pt
- x 433.62pt>
+ x 432.61626pt>
 File: amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic fil
 e (type pdf)
 
 <use amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted
 -to.pdf used on input line 199.
-(pdftex.def)             Requested size: 183.59802pt x 111.39539pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <dmd1_amplitude_hfforce_K_256_Lx_128_tf_1pt
 5e4.eps>
-(epstopdf)                    date: 2018-08-03 18:11:46
-(epstopdf)                    size: 91194 bytes
+(epstopdf)                    date: 2018-08-08 17:08:53
+(epstopdf)                    size: 84360 bytes
 (epstopdf)             Output file: <dmd1_amplitude_hfforce_K_256_Lx_128_tf_1pt
 5e4-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 77277 bytes
+(epstopdf)                    date: 2018-08-09 09:20:20
+(epstopdf)                    size: 62859 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd1_amplitude_hfforce_K_25
 6_Lx_128_tf_1pt5e4-eps-converted-to.pdf dmd1_amplitude_hfforce_K_256_Lx_128_tf_
 1pt5e4.eps>
@@ -532,22 +530,22 @@ Package epstopdf Info: Source file: <dmd1_amplitude_hfforce_K_256_Lx_128_tf_1pt
 Package epstopdf Info: Output file is already uptodate.
 
 <dmd1_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=64, 714
-.67pt x 433.62pt>
+.67pt x 432.61626pt>
 File: dmd1_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphi
 c file (type pdf)
 
 <use dmd1_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: dmd1_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-conv
 erted-to.pdf used on input line 199.
-(pdftex.def)             Requested size: 183.59802pt x 111.39539pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <dmd2_amplitude_hfforce_K_256_Lx_128_tf_1pt
 5e4.eps>
-(epstopdf)                    date: 2018-08-03 18:11:41
-(epstopdf)                    size: 92192 bytes
+(epstopdf)                    date: 2018-08-08 17:09:12
+(epstopdf)                    size: 232554 bytes
 (epstopdf)             Output file: <dmd2_amplitude_hfforce_K_256_Lx_128_tf_1pt
 5e4-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 77407 bytes
+(epstopdf)                    date: 2018-08-09 09:20:21
+(epstopdf)                    size: 44445 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd2_amplitude_hfforce_K_25
 6_Lx_128_tf_1pt5e4-eps-converted-to.pdf dmd2_amplitude_hfforce_K_256_Lx_128_tf_
 1pt5e4.eps>
@@ -555,37 +553,38 @@ Package epstopdf Info: Source file: <dmd2_amplitude_hfforce_K_256_Lx_128_tf_1pt
 Package epstopdf Info: Output file is already uptodate.
 
 <dmd2_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=65, 714
-.67pt x 433.62pt>
+.67pt x 432.61626pt>
 File: dmd2_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphi
 c file (type pdf)
 
 <use dmd2_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: dmd2_amplitude_hfforce_K_256_Lx_128_tf_1pt5e4-eps-conv
 erted-to.pdf used on input line 201.
-(pdftex.def)             Requested size: 183.59802pt x 111.39539pt.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <dmd_mags_hfforce_K_256_Lx_128_tf_1pt5e4.ep
 s>
-(epstopdf)                    date: 2018-08-03 18:11:32
-(epstopdf)                    size: 58466 bytes
+(epstopdf)                    date: 2018-08-08 17:11:56
+(epstopdf)                    size: 26862 bytes
 (epstopdf)             Output file: <dmd_mags_hfforce_K_256_Lx_128_tf_1pt5e4-ep
 s-converted-to.pdf>
-(epstopdf)                    date: 2018-08-06 09:04:41
-(epstopdf)                    size: 22454 bytes
+(epstopdf)                    date: 2018-08-09 09:20:21
+(epstopdf)                    size: 9724 bytes
 (epstopdf)             Command: <epstopdf --outfile=dmd_mags_hfforce_K_256_Lx_1
 28_tf_1pt5e4-eps-converted-to.pdf dmd_mags_hfforce_K_256_Lx_128_tf_1pt5e4.eps>
 (epstopdf)             \includegraphics on input line 201.
 Package epstopdf Info: Output file is already uptodate.
 
 <dmd_mags_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=66, 714.67pt 
-x 433.62pt>
+x 474.77374pt>
 File: dmd_mags_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file
  (type pdf)
- <use dmd_mags_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
+
+<use dmd_mags_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: dmd_mags_hfforce_K_256_Lx_128_tf_1pt5e4-eps-converted-
 to.pdf used on input line 201.
-(pdftex.def)             Requested size: 183.59802pt x 111.39539pt.
+(pdftex.def)             Requested size: 183.59802pt x 121.96764pt.
 
-Overfull \hbox (14.84604pt too wide) in paragraph at lines 198--204
+Overfull \hbox (19.84604pt too wide) in paragraph at lines 198--204
  [][] 
  []
 
@@ -632,9 +631,9 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on coherent_structures_dmd.pdf (11 pages, 1033119 bytes).
+Output written on coherent_structures_dmd.pdf (11 pages, 6646505 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
+ 183 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

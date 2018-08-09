@@ -1,0 +1,278 @@
+function wwt_maker(K,Llx,tf)
+
+    tic
+
+    dt = .1; 
+    dx = Llx/K;
+    Nsteps = tf/dt;
+    n = 8;
+    Kmask = K/2;
+    KT = 2*K;
+    KTT = KT^2;
+
+    f0c = KTT*2.1e-3; 
+    nuh = 2e-6;
+    nul = 0;
+
+    Xmesh = linspace(-Llx,Llx,KT+1);
+    Xmesh = Xmesh(1:KT)';
+    dreg = 1e-2;
+    
+    Kl = 4;
+    Kh = 6;
+
+    Dd = 1i*pi/Llx*[0:K -K+1:-1]';
+    Dx = kron(Dd,ones(KT,1));
+    Dy = kron(ones(KT,1),Dd);
+    Dx2 = Dx.^2;
+    Dy2 = Dy.^2;
+    Dhyp = (-(Dx2+Dy2)).^(n);
+    iDhyp = 1./Dhyp;
+    indsrmv = isinf(iDhyp);
+    iDhyp(indsrmv) = 0;
+    Lap = 1i*(Dx2+Dy2) - nuh*Dhyp - nul*iDhyp;
+    Eop = exp(dt*Lap);
+
+    f0 = zeros(KT^2,1);
+    ksq = ( (kron(ones(KT,1),[0:K -K+1:-1]')).^2 + (kron([0:K -K+1:-1]',ones(KT,1))).^2) ;
+    indsl = ksq >= Kl^2;
+    indsh = ksq <=  Kh^2;
+    indsc = logical(indsl.*indsh);
+    f0(indsc) = 1;
+    f0 = reshape(f0,KT,KT);
+    f0 = f0c*f0;
+    
+    un = zeros(KT^2,1);
+    uavg = zeros(KT^2,1);
+    Ncnt = [];
+    
+    Nstart = 1.4e5;
+    Nint = 25;
+    acnt = 0;
+    
+    %{
+    Nvstart = 9e3;
+    uvels = zeros(KT,KT,3);
+    vvels = zeros(KT,KT,3);
+    dxr = dx/100;
+    dtl = 2*dt;
+    Ktot = KT + 2*(KT-2) + 2;
+    xpaths = zeros(Ktot);
+    ypaths = zeros(Ktot);
+    Xpts = zeros(Ktot,1);
+    Xrght = Xmesh(1:KT-1)+dxr;
+    Xlft = Xmesh(2:KT)-dxr;
+    Xpts(1:3:Ktot) = Xmesh;
+    Xpts(2:3:Ktot) = Xrght;
+    Xpts(3:3:Ktot) = Xlft;
+    [xpaths(:,:),ypaths(:,:)] = meshgrid(Xpts);
+    tftle = 0;
+    %}
+
+    DMDmat = zeros(KT^2,(Nsteps-Nstart)/Nint);
+    
+    for jj=1:Nsteps
+        k1 = dt*nonlin(un,f0,KT);
+        k2 = dt*nonlin(Eop.*(un+k1),f0,KT);
+        un = Eop.*(un+k1/2) + k2/2;
+        if jj>=Nstart 
+            %{
+            if jj>=Nvstart
+                fac = conj(uphys)./(uphys.^2+dreg);
+                Dux = ifft2(reshape(Dx.*un(:),KT,KT));
+                Duy = ifft2(reshape(Dy.*un(:),KT,KT));
+                cind = mod(jj-Nvstart,3)+1;
+                uvels(:,:,cind) = imag(Dux.*fac);
+                vvels(:,:,cind) = imag(Duy.*fac);        
+                if cind==3            
+                    [xpaths,ypaths] = ftle_finder_rk4(xpaths,ypaths,uvels,vvels,Xmesh,dtl);
+                    tftle = tftle + dtl;
+                end
+            end
+            %}
+            if mod(jj,Nint)==0
+                uphys = ifft2(reshape(un,KT,KT));                   
+                if jj == Nstart
+                    ptnzr = uphys;
+                end
+                uavg = uavg + abs(un.*conj(un))/KT^4;
+                nint = sum(sum(real(uphys.*conj(uphys))))*(1/KT)^2;
+                Ncnt = [Ncnt nint];
+                DMDmat(:,acnt+1) = abs(uphys(:));
+                acnt = acnt + 1;
+            end
+        end
+    end
+    %sigfield = ftle_finder_sub_grid(xpaths,ypaths,dxr,K,tftle);    
+    if acnt > 0
+        uavg = fftshift(reshape(uavg/acnt,KT,KT));
+        [krad,kavg] = mat_avg(uavg,K);
+        %{
+        figure(1)
+        plot(log10(pi*krad/Llx),log10(2*pi*(pi*krad/Llx).*kavg),'k-','LineWidth',2)
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$\log_{10}|k|$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$N(|k|)$','Interpreter','LaTeX','FontSize',30)
+        
+        figure(2)
+        plot(dt*Nint*(1:acnt)+dt*Nstart,log10(Ncnt),'k-','LineWidth',2)
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$\tilde{t}$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\log_{10} N_{p}$','Interpreter','LaTeX','FontSize',30)      
+        %}
+        V1 = DMDmat(:,1:end-1);
+        V2 = DMDmat(:,2:end);
+        [U,Sig,W] = svd(V1,'econ');
+        idSig = 1./diag(Sig);
+        indsrmv = isinf(idSig);
+        idSig(indsrmv) = 0;
+        iSig = diag(idSig);
+        
+        V2 = U'*V2*W*iSig;
+        [evecs,evals] = eigs(V2,acnt-1);
+        devals = diag(evals);
+        evecs = U*evecs;
+        
+        bspread = evecs\ptnzr(:);
+        mdmags = (devals.^(dt*Nint*acnt)).*bspread;
+        [~,Iinds] = sort(abs(mdmags),'descend');        
+              
+        efin1 = reshape(evecs(:,Iinds(1)),KT,KT);
+        efin2 = reshape(evecs(:,Iinds(2)),KT,KT);
+        
+        %{
+        efreq = fft2(efin);
+        efac = conj(efin)./(efin.^2+dreg);
+        Dex = ifft2(reshape(Dx.*efreq(:),KT,KT));
+        Dey = ifft2(reshape(Dy.*efreq(:),KT,KT));
+        eu = fft2(imag(Dex.*efac));
+        ev = fft2(imag(Dey.*efac));    
+        evort = real(ifft2(reshape(Dy.*eu(:)-Dx.*ev(:),KT,KT)));
+        %}
+                
+        figure(1)
+        surf(Xmesh,Xmesh,abs(mdmags(Iinds(1))*efin1),'LineStyle','none')
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
+    
+        figure(2)
+        surf(Xmesh,Xmesh,abs(mdmags(Iinds(2))*efin2),'LineStyle','none')
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
+        
+        %{
+
+        figure(4)
+        imagesc(-K+1:K,-K+1:K,log10(abs(fftshift(fft2(exp(1i*angle(efin1)))))))
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$k_x$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$k_y$','Interpreter','LaTeX','FontSize',30)            
+                
+        figure(6)
+        imagesc(-K+1:K,-K+1:K,log10(abs(fftshift(fft2(exp(1i*angle(efin2)))))))
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$k_x$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$k_y$','Interpreter','LaTeX','FontSize',30)    
+       
+        %}
+        
+        figure(3)
+        %{
+        hold on
+        for jj=1:length(bspread)            
+            plot([jj jj],[ystart(jj) abs(bspread(Iinds(jj)))],'k','LineWidth',2)
+        end    
+        hold off             
+        %}
+        plot(1:length(bspread),log10(abs((devals(Iinds)).^(dt*Nint*acnt).*bspread(Iinds))),'k','LineWidth',2)
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$n$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\mbox{log}_{10}|\tilde{b}_{N}|$','Interpreter','LaTeX','FontSize',30)    
+        
+        figure(4)
+        plot(1:length(devals),log10(abs(devals(Iinds))),'k','LineWidth',2)
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$n$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\mbox{log}_{10}|\mu_{n}|$','Interpreter','LaTeX','FontSize',30)    
+        
+        figure(5)
+        plot(1:length(bspread),log10(abs(bspread(Iinds))),'k','LineWidth',2)
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$n$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\mbox{log}_{10}|b_{n}|$','Interpreter','LaTeX','FontSize',30)    
+        
+    end
+    
+    ufin = ifft2(reshape(un,KT,KT));
+    %{
+    fac = conj(uphys)./(uphys.^2+dreg);
+    Dux = ifft2(reshape(Dx.*un(:),KT,KT));
+    Duy = ifft2(reshape(Dy.*un(:),KT,KT));
+    uv = fft2(imag(Dux.*fac));
+    vv = fft2(imag(Duy.*fac));    
+    vort = real(ifft2(reshape(Dy.*uv(:)-Dx.*vv(:),KT,KT)));
+    %}
+    
+    figure(6)
+    surf(Xmesh,Xmesh,abs(ufin),'LineStyle','none')
+    h = set(gca,'FontSize',30);
+    set(h,'Interpreter','LaTeX')
+    xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+    ylabel('$y$','Interpreter','LaTeX','FontSize',30)
+    
+    %{
+    figure(10)
+    imagesc(-K+1:K,-K+1:K,log10(abs(fftshift(fft2(exp(1i*angle(ufin)))))))
+    h = set(gca,'FontSize',30);
+    set(h,'Interpreter','LaTeX')
+    xlabel('$k_x$','Interpreter','LaTeX','FontSize',30)
+    ylabel('$k_y$','Interpreter','LaTeX','FontSize',30)    
+    %}
+    toc
+end
+
+function uout = nonlin(un,f0,KT)
+    uphys = ifft2(reshape(un,KT,KT));
+    unl = -1i*fft2(uphys.*uphys.*conj(uphys));
+    phi = exp(-1i*2*pi*rand);
+    unl = unl + phi*f0;
+    
+    uout = unl(:);
+end
+
+function [krad,kavg] = mat_avg(M,K)
+    KT = 2*K;
+    %inds = -K+1:K;
+    
+    krad = (1:K)';
+    kavg = M(K,K+1:KT)';
+    %{
+    indsr = kron(ones(KT,1),inds');
+    indsc = kron(inds',ones(KT,1));
+    M = M(:);
+    kavg = zeros(length(krad),1);
+    mrads = sqrt((indsr.^2+indsc.^2)/2);
+    for jj=1:length(krad)-1
+       indsl = mrads >= krad(jj);
+       indsh = mrads < krad(jj+1);
+       indsc = logical(indsl.*indsh);
+       totparts = sum(indsc);
+       
+       if totparts > 0
+          kavg(jj) = sum(M(indsc))/totparts; 
+       end
+    end
+    %}
+    
+end
