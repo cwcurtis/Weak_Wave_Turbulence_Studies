@@ -11,7 +11,7 @@ function wwt_maker(K,Llx,tf)
 
     f0c = KTT*2.1e-3; 
     nuh = 2e-6;
-    nul = 0;
+    nul = 1e-18;
 
     Xmesh = linspace(-Llx,Llx,KT+1);
     Xmesh = Xmesh(1:KT)';
@@ -45,35 +45,48 @@ function wwt_maker(K,Llx,tf)
     uavg = zeros(KT^2,1);
     
     Nsteps = tf/dt;
-    Ncnt = [];
+    fprintf('Total Number of Time Steps: %1.4e \n', Nsteps);
+    
     Nstart = floor(.99*Nsteps);
-    Nint = 20;
+    fprintf('Starting Number of Time Step: %1.4e \n', Nstart);
     
+    Ncnt = [];
+    
+    Nint = 50;
+    NDMD = 5;
     acnt = 0;
-    pcnt = 2;
+    dcnt = 0;
     
-    DMDmat = zeros(KT^2,floor((Nsteps-Nstart)/Nint));
-    rsdl = zeros(floor((Nsteps-Nstart)/Nint),1);
+    DMDmat = zeros(KT^2,floor((Nsteps-Nstart)/NDMD));
+    rsdl = zeros(floor((Nsteps-Nstart)/NDMD),1);
+    
     for jj=1:Nsteps
         k1 = dt*nonlin(un,f0,KT);
         k2 = dt*nonlin(Eop.*(un+k1),f0,KT);
         un = Eop.*(un+k1/2) + k2/2;
         if jj>=Nstart 
+            
             if mod(jj,Nint)==0
                 uphys = ifft2(reshape(un,KT,KT));                   
-                if jj == Nstart
-                    ptnzr = uphys;
-                end
                 uavg = uavg + abs(un.*conj(un))/KT^4;
                 nint = sum(sum(real(uphys.*conj(uphys))))*(1/KT)^2;
-                Ncnt = [Ncnt nint];
-                DMDmat(:,acnt+1) = abs(uphys(:));
-                if acnt > 0
-                    avec = DMDmat(:,1:acnt)\DMDmat(:,acnt+1);
-                    rsdl(acnt) = log10(norm(DMDmat(:,1:acnt)*avec - DMDmat(:,acnt+1)));                    
-                end
+                Ncnt = [Ncnt nint];                
                 acnt = acnt + 1;
             end
+                        
+            if mod(jj,NDMD) == 0
+                uphys = ifft2(reshape(un,KT,KT));                                    
+                if jj == Nstart
+                   ptnzr = abs(uphys(:));
+                end                 
+                DMDmat(:,dcnt+1) = abs(uphys(:));
+                %if dcnt > 0
+                %   avec = DMDmat(:,1:dcnt)\DMDmat(:,dcnt+1);
+                %   rsdl(dcnt) = log10(norm(DMDmat(:,1:dcnt)*avec - DMDmat(:,dcnt+1))/norm(DMDmat(:,dcnt+1)));                    
+                %end                 
+                dcnt = dcnt + 1;
+            end
+            
         end
     end
     
@@ -90,37 +103,84 @@ function wwt_maker(K,Llx,tf)
         iSig = diag(idSig);
         
         V2 = U'*V2*W*iSig;
-        [evecs,evals] = eigs(V2,acnt-1);
+        [evecs,evals] = eigs(V2,dcnt-1);
         devals = diag(evals);
-        evecs = U*evecs;
+        evecs = U*evecs*diag(1./vecnorm(evecs));
         
-        bspread = evecs\ptnzr(:);
-        mdmags = (devals.^(dt*Nint*acnt)).*bspread;
-        [~,Iinds] = sort(abs(mdmags),'descend');        
-              
-        for mm=1:pcnt     
-            figure(mm)
-            surf(Xmesh,Xmesh,abs(mdmags(Iinds(mm))*reshape(evecs(:,Iinds(mm)),KT,KT)),'LineStyle','none')
+        bspread = evecs\ptnzr;
+        cdevals = log(devals)/(NDMD*dt);
+        svdinds = real(cdevals) >= -.02;
+        gvinds = real(cdevals) > 0.01;
+        rminds = imag(cdevals) >= 0;
+        tinds = logical(rminds.*svdinds.*(1-gvinds));
+        
+        nopsv = sum(gvinds);
+        
+        brm = bspread(tinds);
+        dvrm = cdevals(tinds);
+        rvcs = evecs(:,tinds);
+        
+        pcnt = sum(log10(abs(brm))>=1);
+                
+        [~,maxinds] = sort(abs(brm),'descend');
+        
+        figure(1)
+        scatter(real(dvrm),log10(abs(brm)),20,'filled')
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$\mbox{Re}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\log_{10}|b_{j}|$','Interpreter','LaTeX','FontSize',30) 
+        
+        figure(2)
+        scatter(imag(dvrm),log10(abs(brm)),20,'filled')                
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$\mbox{Im}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\log_{10}|b_{j}|$','Interpreter','LaTeX','FontSize',30) 
+        
+        for mm=1:pcnt
+            figure(mm+2)
+            surf(Xmesh,Xmesh,abs(brm(maxinds(mm))*reshape(rvcs(:,maxinds(mm)),KT,KT)),'LineStyle','none')
             h = set(gca,'FontSize',30);
             set(h,'Interpreter','LaTeX')
             xlabel('$x$','Interpreter','LaTeX','FontSize',30)
-            ylabel('$y$','Interpreter','LaTeX','FontSize',30)        
+            ylabel('$y$','Interpreter','LaTeX','FontSize',30) 
+            eval = dvrm(maxinds(mm));
+            txt = sprintf('$$\\lambda: %1.4f + %1.4f i$$',real(eval),imag(eval));
+            title(txt,'interpreter','latex')
         end
-       
-        figure(pcnt+1)
-        plot(1:(acnt-1),rsdl,'k','LineWidth',2)
+        %{
+        if nopsv > 0
+            gvpinds = logical(rminds.*gvinds);
+            prvals = cdevals(gvpinds);
+            brvals = bspread(gvpinds);
+            rpevecs = evecs(:,gvpinds);
+            for mm=1:sum(gvpinds)
+                figure(mm+pcnt+2)
+                surf(Xmesh,Xmesh,abs(brvals(mm)*reshape(rpevecs(:,mm),KT,KT)),'LineStyle','none')
+                h = set(gca,'FontSize',30);
+                set(h,'Interpreter','LaTeX')
+                xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+                ylabel('$y$','Interpreter','LaTeX','FontSize',30) 
+                eval = prvals(mm);
+                txt = sprintf('$$\\lambda: %1.4f + %1.4f i$$',real(eval),imag(eval));
+                title(txt,'interpreter','latex')
+            end
+        end
+        %}
         
-        figure(pcnt+2)
-        plot(1:length(Iinds),log10(abs(devals(Iinds))),'k','LineWidth',2)
-        
-        figure(pcnt+3)
-        plot(1:length(Iinds),bspread(Iinds),'k','LineWidth',2)
+        figure(pcnt+2+1)
+        scatter(real(cdevals),imag(cdevals),10,'filled')        
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$\mbox{Re}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\mbox{Im}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30) 
         
     end
     
     ufin = ifft2(reshape(un,KT,KT));
     
-    figure(pcnt+4)
+    figure(pcnt+2+2)
     surf(Xmesh,Xmesh,abs(ufin),'LineStyle','none')
     h = set(gca,'FontSize',30);
     set(h,'Interpreter','LaTeX')
