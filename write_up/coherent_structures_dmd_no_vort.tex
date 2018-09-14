@@ -118,95 +118,126 @@ U^{\dagger}AU = \tilde{S}, ~ \tilde{S} = U^{\dagger}V_{2}^{N}W\Sigma^{-1}.
 \]
 Thus by computing the associated eigenvalues and eigenvectors of $\tilde{S}$, say $\mu_{j}$ and $\tilde{\phi}_{j}$ respectively, then for $N$ large enough with sufficiently controlled spacing in the time-series, these eigenvalues and eigenvectors will approximate those of $A$.  Likewise, this allows us to write each vector in our time-series as 
 \[
-\phi_{n} = \sum_{j=1}^{N} b_{j}\mu_{j}^{n} U\tilde{\phi}_{j} + {\bf r}_{n},
+\phi_{n} = \sum_{j=1}^{N} b_{j}\mu_{j}^{n} \bar{\phi}_{j} + {\bf r}_{n}, ~ \bar{\phi}_{j} = U \tilde{\phi}_{j},
 \]
 where ${\bf r}_{n}$ denotes the residual at the $n^{th}$ sampling time. 
 \section*{Characterizing Coherent States}
 
-\subsection*{Methodology for Implementing the DMD}
+\subsection*{Methodology for Implementing and Analysing the DMD}
 
-In order to realize WWT regimes of the NLS equation, following \cite{nazarenko2}, we run each simulation over a domain of size $L=128$ with a total of $K_{T}=256$ modes in each spatial direction.  Using a two stage Runge-Kutta scheme with a time step of $\delta t=.1$, by simulating up to $t_{f}=1.5\times 10^{4}$, we are able to see the necessary turbulent or mixed dynamics that we are interested in.  
+In order to realize the WWT regimes of the NLS equation, following \cite{nazarenko2}, we run each simulation over a domain of size $L=128$ with a total of $K_{T}=256$ modes in each spatial direction.  Using a two stage Runge-Kutta scheme with a time step of $\delta t=.1$, by simulating up to $t_{f}=1.5\times 10^{4}$, we are able to see the necessary turbulent or mixed dynamics that we are interested in.  
 
-With regards to the DMD, we take as the ``observable" quantity the magnitude $|\psi(x,y,t)|$, which we sample every five numerical timesteps, so that the sampling rate $\delta t_{s}=.5$.  We begin sampling at $t_{f}=1.485\times10^{4}$, so that we sample the last $150$ units of time, thereby ensuring we are in fact performing DMD on a fully turbulent or mixed flow.  Thus, if we sample over the entire physical domain, this corresponds then to case where the dimensionality of the DMD vectors $M = 256^2 \gg 150/.5 = 300$, so that $M$ is far larger than the number of time samples taken. 
+With regards to the DMD, we take as the ``observable" quantity the magnitude $|\psi(x,y,t)|$.  Throughout each simulation, we sample every five numerical timesteps, so that the sampling rate is $\delta t_{s}=.5$.  We begin sampling at $t_{i}=1.47\times10^{4}$, so that we sample the last $300$ units of time, thereby ensuring we are in fact performing DMD on a fully turbulent or mixed flow.  This likewise gives us the approximation
+\[
+|\psi(x,y,t^{(s)}_{n})| \approx A\left(t^{(s)}_{n}\right) = \sum_{j=1}^{N} b_{j}e^{\lambda_{j}(t^{(s)}_{n}-t_{i})} \bar{\phi}_{j},  
+\]
+where
+\[
+\lambda_{j} = \frac{\log \mu_{j}}{\delta t_{s}}, ~ t^{(s)}_{n} = t_{i}  + n\delta t_{s}, ~ n\geq 0.
+\]
+Note, the approximation above holds at the discretized points of the spatial mesh used in the numerical simulation of the NLS equation.  Thus, if we sample over the entire physical domain, this corresponds then to case where the dimensionality of the DMD vectors $M = 256^2 \gg 300/.5 = 600$, so that $M$ is far larger than the number of time samples taken.  As we see in each simulation, typically each DMD generated mode has a corresponding temporal eigenvalue $\lambda_{j}$ such that $\mbox{Re}\left(\lambda_{j}\right)\leq 2.5\times 10^{-3}$, so that every mode is either stationary or transitory.  
 
- Given the numerical limitations of looking at higher resolution sampling rates, we approach analyzing the results of the DMD method from two perspectives.  Letting $\lambda_{j} = \log \mu_{j}/\delta t_{s}$, and scaling the modes $\tilde{\phi}_{j}$ so they have vector-2 norm equal to one, we use the magnitudes of the real parts of $\lambda_{j}$ and the magnitude of the coefficients $b_{j}$ to guide the selection of the most `dominant' modes.  By comparing across these two sets of information, we can make informed, quantitatively supported decisions about what represents a more or less significant mode.  
+To perform mode selection, we implement the following strategy.  At each discrete sampling time $t^{(s)}_{n}$, we sort the sequence 
+\[
+\left\{ \left|  b_{j}e^{\lambda_{j}(t_{n}^{(s)}-t_{i})} \right| \right\}_{j=1}^{N}
+\]
+according to magnitude from greatest to least, inducing a mapping between indices, say $j=f(l;n)$.  Note, by emphasizing the sampling step $n$, we are drawing attention to the fact that the sorting map between indices can change at every discrete sampling step.  We then select from this sorted listed the minimal number of modes, say $N_{r}(n)\leq N$, such that 
+\[
+\frac{\gnorm{A_{N_{r}(n)}\left(t^{(s)}_{n}\right) - \left|\psi(\cdot,\cdot,t^{(s)}_{n})\right|}_{2}}{\gnorm{\psi(\cdot,\cdot,t^{(s)}_{n})}_{2}} \leq .1,
+\]
+where
+\[
+A_{N_{r}(n)}\left(t^{(s)}_{n}\right) = \sum_{l=1}^{N_{r}(n)} b_{f(l;n)}e^{\lambda_{f(l;n)}(t^{(s)}_{n}-t_{i})} \bar{\phi}_{f(l;n)}
+\]
+Thus $N_{r}(n)$ represents the minimal number of maximally sorted modes which represent $90\%$ of the total energy of the NLS equation at $t^{(s)}_{n}$.  We likewise define the time dependent compression ratio $C_{r}(n)=N_{r}(n)/N$.  We note that throughout each simulation presented in the remainder of the paper, if we use all of the available modes, the relative error measured above is at most on the order of $10^{-11}$ over the course of the DMD sampling process, or the norms of the residuals ${\bf r}_{n}$ are only at worst $10^{-11}\gnorm{\psi(\cdot,\cdot,t^{(s)}_{n})}_{2}$.  Thus, taken in its entirety, the DMD provides an extremely accurate reconstruction of the flow over the time which it is applied.  
 
-\subsection*{Down-Scale Weak Turbulence Cascades}
-In this case, we take $k_{l}=4$, $k_{h}=6$, and $\gamma_{0}=2.1\times 10^{-3}$.  To recreate the WWT results of \cite{nazarenko2}, we keep both hypo and hyperviscosity in place.  The results of this are seen in Figures \ref{fig:ampcompwwt} and \ref{fig:oscwwt}.  In particular, we see the fully evolved amplitude of the NLS equation at $t_{f}$, i.e. $|\psi(x,y,t_{f})|$, in Figure \ref{fig:ampcompwwt} (a) compared against the weighted mean of the flow computed via the DMD shown in  Figures \ref{fig:ampcompwwt} (b).  As seen, we can characterize the WWT regime in part by noting the lack of clear structure in the mean mode.  The finer details seen in Figure \ref{fig:ampcompwwt} (a) can in part be recovered by looking beyond the mean mode to higher oscillatory/weakly-transitory modes, seen in Figure \ref{fig:oscwwt}.  Note, by a plot of a weighted DMD mode, we mean that we plot $\left|b_{j}U\tilde{\phi}_{j}\right|$, thereby allowing us to visualize the spatial structure associated with the mode as well as its relative contribution controlled by the magnitude of $b_{j}$ since each mode $U\tilde{\phi}_{j}$ is scaled to have unit vector norm.  
+While in some sense an arbitrary choice, we have found the $90\%$ threshold to provide an efficient way to determine the most relavant modes while still providing significant reductions in the compression ratio, thus reflecting the way in which the DMD method is able to capture many of the features of complex flows via relatively low-dimensional representations.  
+Morever, though the modes of interest can change from sampling step to sampling step, as we see from our results, in practice it is clear that some modes ultimately become consistently more dominant over longer time scales.  However, our mode selection scheme also allows us to better understand the dominant processes happening over the length of time of the DMD sampling, thereby allowing for observations of transitory and multiple scales behavior.  
+
+Focusing then on those modes which will ultimately dominate towards the end of the DMD process, given that the total time scale over which we perform the DMD is $300$ units of non-dimensional time, we define those modes such that $-.02\leq \mbox{Re}\left(\lambda_{j}\right)\leq 2.5\times 10^{-3}$ to be weakly-transitory.  This choice reflects results from the simulations where it is typical to see the magnitude of the coefficients $b_{j}$ to be on the order of $10^{2}$ for $\mbox{Re}\left(\lambda_{j}\right)\sim -.02$ and $10^{-2}$ for $\mbox{Re}\left(\lambda_{j}\right)\sim .0025$.  Our definition of a weakly-transitory mode ensures then that an initial amplitude of $10^{2}$ is scaled to $2.5\times 10^{-1}$, or just a little over ten percent by the end of the DMD sampling process.  Likewise, an initial amplitude of $10^{-2}$ becomes at most $.02$.  Thus, by focusing on these weakly-transitory modes, we can focus on those modes which characterize our 90\% criterion over longer time scales.  
+\subsection*{Modal Descriptions}
+We first examine the results of the DMD by way of examing the most significant modes which represent the amplitude of the flow at the final time $t_{f}=1.5\times10^{4}$.  
+\subsubsection*{Weak Wave Turbulence Case}
+In this case, we take $k_{l}=4$, $k_{h}=6$, and $\gamma_{0}=2.1\times 10^{-3}$.  To recreate the WWT results of \cite{nazarenko2}, we keep both hypo and hyperviscosity in place.  The results of this are seen in Figures \ref{fig:ampcompwwt}.  In particular, we see the fully evolved amplitude of the NLS equation at $t_{f}$, i.e. $|\psi(x,y,t_{f})|$, in Figure \ref{fig:ampcompwwt} (a) compared against the weighted mean of the flow computed via the DMD shown in  Figures \ref{fig:ampcompwwt} (b).  As seen, we can characterize the WWT regime in part by noting the lack of clear structure in the mean mode.  The finer details seen in Figure \ref{fig:ampcompwwt} (a) can in part be recovered by looking beyond the mean mode to higher oscillatory/weakly-transitory modes, seen in Figures \ref{fig:ampcompwwt} (c)-(f).  Note, by a plot of a weighted DMD mode, we mean that we plot $\left|b_{j}U\tilde{\phi}_{j}\right|$, thereby allowing us to visualize the spatial structure associated with the mode as well as its relative contribution controlled by the magnitude of $b_{j}$ since each mode $U\tilde{\phi}_{j}$ is scaled to have unit vector norm.  
 \begin{figure}[!ht]
 \centering
 \begin{tabular}{cc}
 \includegraphics[width=.525\textwidth]{amplitude_wwt_K_128_Lx_128_tf_1pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{mean_wwtforce_K_128_Lx_128_tf_1_pt5e4} \\
 (a) & (b)\\
-\includegraphics[width=.525\textwidth]{bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4}\\
-(c) & (d)
+\includegraphics[width=.51\textwidth]{osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4} \\
+(c) & (d)\\
+\includegraphics[width=.51\textwidth]{osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4}\\
+(e) & (f)
 \end{tabular}
-\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), weighted mean (b),  plot of $\log_{10}|b_{j}|$ against $\mbox{Re}(\lambda_{j})$ (c), and plot of $\log_{10}|b_{j}|$ against $\mbox{Im}(\lambda_{j})$ (d) for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=2.1\times 10^{-3}$. }
+\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), weighted mean (b), and next four most signifcant weakly-transient modes (c)-(f) for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=2.1\times 10^{-3}$. }
 \label{fig:ampcompwwt}
 \end{figure}
-\begin{figure}[!ht]
-\centering
-\begin{tabular}{cc}
-\includegraphics[width=.51\textwidth]{osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4} \\
-(a) & (b)\\
-\includegraphics[width=.51\textwidth]{osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4}\\
-(c) & (d)
-\end{tabular}
-\caption{The first four, by magnitude in $|b_{j}|$, weighted oscillatory/weakly-transient modes for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=2.1\times 10^{-3}$. }
-\label{fig:oscwwt}
-\end{figure}
 
-As seen in  Figure \ref{fig:ampcompwwt} (c), among those modes which are weakly-transitory, defined by focusing only on those DMD modes such that $\mbox{Re}(\lambda_{j})\geq-.02$, the mean is the dominant mode with respect to its magnitude of $|b_{j}|$.  We see a relatively uniform distribution of the magnitudes of $|b_{j}|$ against $\mbox{Im}(\lambda_{j})$, showing us a kind of temporal Fourier transform in which we see higher frequencies corresponding to smaller values of $|b_{j}|$.  Note the matrices involved in the DMD are all real in our case, and thus we only plot against those $\lambda_{j}$ with positive real part since we have symmetry across the real line.  
-
-\subsection*{Long-Wavelength Saturation and Coherent States}
-Through the remaining simulations, we remove the hypoviscosity, and let $\gamma_{0}=1.6\times 10^{-3}$, thereby allowing for saturation in longer-wavelengths to occur.  If we continue to look at the relatively low frequency forcing explored above, we expect to see long-wavelength coherent structures to form.  It is at this point that we can plainly see the advantage of using the DMD by comparing the fully evolved solution to the NLS equation in Figure \ref{fig:ampcomplf} (a) to the mean DMD mode in Figure \ref{fig:ampcomplf} (b).  We see in Figure \ref{fig:ampcomplf} (c) that this mode also has the largest associated value of $|b_{j}|$, so that, taking into account all other modes being oscillatory/weakly-transitory, the condensed state seen in the mean represents a kind of temporal limit of the dynamics.  The mean mode clearly identifies a finite number of vortices interacting through a finite amplitude background.  
+\subsubsection*{Low-Frequency Saturation Case}
+Through the remaining simulations, we remove the hypoviscosity, and let $\gamma_{0}=1.6\times 10^{-3}$, thereby allowing for saturation in longer-wavelengths to occur.  If we continue to look at the relatively low frequency forcing explored above, we expect to see long-wavelength coherent structures to form.  It is at this point that we can plainly see the advantage of using the DMD by comparing the fully evolved solution to the NLS equation in Figure \ref{fig:ampcomplf} (a) to the mean DMD mode in Figure \ref{fig:ampcomplf} (b).  The mean mode clearly identifies a finite number of vortices interacting through a finite amplitude background.  
 \begin{figure}[!ht]
 \centering
 \begin{tabular}{cc}
 \includegraphics[width=.525\textwidth]{amplitude_lfforce_K_128_Lx_128_tf_1pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{mean_lfforce_K_128_Lx_128_tf_1_pt5e4} \\
 (a) & (b)\\
-\includegraphics[width=.525\textwidth]{bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4}\\
-(c) & (d)
+\includegraphics[width=.51\textwidth]{osc1_lfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc2_lfforce_K_128_Lx_128_tf_1_pt5e4} \\
+(c) & (d)\\
+\includegraphics[width=.51\textwidth]{osc3_lfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc4_lfforce_K_128_Lx_128_tf_1_pt5e4}\\
+(e) & (f)
 \end{tabular}
-\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), weighted mean (b),  plot of $\log_{10}|b_{j}|$ against $\mbox{Re}(\lambda_{j})$ (c), and plot of $\log_{10}|b_{j}|$ against $\mbox{Im}(\lambda_{j})$ (d) for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=1.6\times 10^{-3}$. }
+\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), weighted mean (b), and next four most signifcant weakly-transient modes (c)-(f) for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=1.6\times 10^{-3}$. }
 \label{fig:ampcomplf}
 \end{figure}
+
+Of interest though is the relative similarity in the finer, higher-frequency features seen in Figures \ref{fig:ampcomplf} (c)-(f) to those in Figures \ref{fig:ampcompwwt} (c)-(f).  As seen, they are relatively siimilar in terms of their overall characteristics, and thus we can characterize the low-frequency saturation case as a long-wave condensed mean with a weakly-turbulent background fluctuating about this mean.  
+
+\subsubsection*{High-Frequency Saturation Case}
+We now look at higher-frequency forcing where we let $k_{l}=60$ and $k_{h}=63$.  As in the low-frequency, long-wavelength saturated case above, we see that the mean DMD mode seen in Figure \ref{fig:ampcomphf} (b) clearly isolates the condensed dynamics obscured through the higher-frequency spatial features in the solution to the NLS equation seen in Figure \ref{fig:ampcomphf} (a).  In contrast the low-frequency forcing case above though, we see in the higher-order modes in Figures \ref{fig:ampcomphf} (c)-(f), far sharper, or higher-frequency, spatial features, thus clearly reflecting the different forcing mechanism in play in this simulation.   
 \begin{figure}[!ht]
 \centering
 \begin{tabular}{cc}
-\includegraphics[width=.51\textwidth]{osc1_lfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc2_lfforce_K_128_Lx_128_tf_1_pt5e4} \\
+\includegraphics[width=.525\textwidth]{amplitude_hfforce_K_128_Lx_128_tf_1pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{mean_hfforce_K_128_Lx_128_tf_1_pt5e4} \\
 (a) & (b)\\
-\includegraphics[width=.51\textwidth]{osc3_lfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc4_lfforce_K_128_Lx_128_tf_1_pt5e4}\\
-(c) & (d)
+\includegraphics[width=.51\textwidth]{osc1_hfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc2_hfforce_K_128_Lx_128_tf_1_pt5e4} \\
+(c)  & (d) \\
+\includegraphics[width=.51\textwidth]{osc3_hfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc4_hfforce_K_128_Lx_128_tf_1_pt5e4}\\
+(e)  & (f)
 \end{tabular}
-\caption{The first four, by magnitude in $|b_{j}|$, weigthed oscillatory/weakly-transient modes for $k_{l}=4$, $k_{h}=6$, $\gamma_{0}=1.6\times 10^{-3}$. }
-\label{fig:osclf}
-\end{figure}
-
-Moreover, we see from Figure \ref{fig:ampcomplf} (d) that the higher temporal frequencies of oscillation correspond to far smaller magnitudes of $|b_{j}|$ than in the WWT regime examined above, so that the dynamics is characterized by slower oscillating modes than in the WWT regime.  The finer spatial dynamics can be seen in part by examining the plots in Figure \ref{fig:osclf}.  
-
-We now look at higher-frequency forcing where we let $k_{l}=60$ and $k_{h}=63$.  As in the low-frequency, long-wavelength saturated case above, we see that the mean DMD mode seen in Figure \ref{fig:ampcomphf} clearly isolates the condensed dynamics obscured through the higher-frequency spatial features in the solution to the NLS equation seen in Figure \ref{fig:ampcomphf} (a).  In contrast the low-frequency forcing case above though, we see in the oscillatory/weakly-transitory modes in Figure \ref{fig:oschf}, spatial dynamics with far sharper, or higher-frequency, spatial features, thus clearly reflecting the different forcing mechanism in play in this simulation.   
-\begin{figure}[!ht]
-\centering
-\begin{tabular}{cc}
-\includegraphics[width=.51\textwidth]{amplitude_hfforce_K_128_Lx_128_tf_1pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{mean_hfforce_K_128_Lx_128_tf_1_pt5e4} \\
-(a) & (b)\\
-\includegraphics[width=.51\textwidth]{bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf_1_pt5e4}\\
-(c) & (d)
-\end{tabular}
-\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), weighted mean (b),  plot of $\log_{10}|b_{j}|$ against $\mbox{Re}(\lambda_{j})$ (c), and plot of $\log_{10}|b_{j}|$ against $\mbox{Im}(\lambda_{j})$ (d) for $k_{l}=60$, $k_{h}=63$, $\gamma_{0}=1.6\times 10^{-3}$. }
+\caption{The amplitude $\left|\psi(x,y,t_{f})\right|$ (a), weighted mean (b), and next four most signifcant weakly-transient modes (c)-(f) for $k_{l}=60$, $k_{h}=63$, $\gamma_{0}=1.6\times 10^{-3}$. }
 \label{fig:ampcomphf}
 \end{figure}
+
+\subsection*{Comparison Across Flows via Spectral Characteristics}
+We now compare the spectral characteristics and compression ratios of the weak-wave turbulence (WWT), low-frequency saturation (LFS), and high-frequency saturation (HFS) cases studied above.  Here, we focus less on isolating some relatively small number of modes and more examine the charactertistic responses of each measured quantity across the different flows thereby allowing for the identification of classifying features that may not be as readily apparent given the overall complexity of each flow.  
 \begin{figure}[!ht]
 \centering
 \begin{tabular}{cc}
-\includegraphics[width=.51\textwidth]{osc1_hfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc2_hfforce_K_128_Lx_128_tf_1_pt5e4} \\
-(a) & (b)\\
-\includegraphics[width=.51\textwidth]{osc3_hfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-15pt} \includegraphics[width=.51\textwidth]{osc4_hfforce_K_128_Lx_128_tf_1_pt5e4}\\
-(c) & (d)
+\includegraphics[width=.525\textwidth]{bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4}\\
+(a) WWT & (b) WWT\\
+\includegraphics[width=.525\textwidth]{bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4}\\
+(c) LFS & (d) LFS\\
+\includegraphics[width=.525\textwidth]{bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_1_pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf_1_pt5e4}\\
+(e) HFS & (f) HFS
 \end{tabular}
-\caption{The first four, by magnitude in $|b_{j}|$, weighted oscillatory/weakly-transient modes $k_{l}=60$, $k_{h}=63$, $\gamma_{0}=1.6\times 10^{-3}$. }
-\label{fig:oschf}
+\caption{Plot of the real part of $\lambda_{j}$ against $\log_{10}|b_{j}|$ for the WWT (a), low-frequency saturated (c), and high-frequency saturated (e) regimes and the plot of the imaginary part of $\lambda_{j}$ against $\log_{10}|b_{j}|$  for the WWT (b), low-frequency saturated (d), and high-frequnecy saturated (f) regimes.}
+\label{fig:wkosccomp}
+\end{figure}
+As seen in  Figures \ref{fig:wkosccomp} (a), (c), and (e) among those modes which are weakly-transitory, the mean always begins as the dominant mode with respect to its magnitude of $|b_{j}|$.  Likewise, we see from Figures \ref{fig:wkosccomp} (b), (d), and (f) that the higher temporal frequencies of oscillation correspond to smaller magnitudes of $|b_{j}|$, reflecting a kind of energy decay in time akin to what one usually sees via Fourier transforms in time or space.  However, focusing on the regime of weakly-transitory modes, we see marked differences in the spread of the magnitudes of $|b_{j}|$ with respect to the real part of the eigenvalues $\lambda_{j}$.  Thus, the way in which weakly transitory effects manifest themselves are distinguished in the different classes of flows.  
+
+The impact of this manifests itself in the different dynamics and long time behavior of the compression ratio $C_{r}(n)$ seen in Figures \ref{fig:comprats} (b), (d), and (f).  As seen, the greater complexity of the WWT flow necessitates larger, and at times, more erratic numbers of modes in order to maintain the 90 \% threshold used for modal selection.  However, we also see the greater complexity of the HFS case in comparison to the LFS case by way of the overall larger compression ratio needed in the HFS case.  A partial explanation for this is that in the HFS case in order for energy to transfer to the longer wavelengths one must first form the higher frequency, spindle like structures seen in Figures \ref{fig:ampcomphf} (c)-(f).  Lastly, we note the presence of jumps in the compression ratio which clearly correspond to the more transitory modes, determined from examing the most leftward eigenvalues in Figures \ref{fig:comprats} (a), (c), and (e).
+
+\begin{figure}[!ht]
+\centering
+\begin{tabular}{cc}
+\includegraphics[width=.525\textwidth]{full_spec_wwt_K_128_Lx_128_tf_1_pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{cratio_wwt_K_128_Lx_128_tf_1pt5e4}\\
+(a) WWT & (b) WWT\\
+\includegraphics[width=.525\textwidth]{full_spec_lf_K_128_Lx_128_tf_1_pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{cratio_lfforce_K_128_Lx_128_tf_1pt5e4}\\
+(c) LFS & (d) LFS\\
+\includegraphics[width=.525\textwidth]{full_spec_hf_K_128_Lx_128_tf_1_pt5e4} &\hspace{-25pt} \includegraphics[width=.525\textwidth]{cratio_hfforce_K_128_Lx_128_tf_1pt5e4}\\
+(e) HFS & (f) HFS
+\end{tabular}
+\caption{Plot of the full spectrum for the WWT (a), low-frequency saturated (c), and high-frequency saturated (e) regimes and the compression ratio $C_{r}(n)$ for the WWT (b), low-frequency saturated (d), and high-frequnecy saturated (f) regimes.}
+\label{fig:comprats}
 \end{figure}
 
 \section*{Conclusion}

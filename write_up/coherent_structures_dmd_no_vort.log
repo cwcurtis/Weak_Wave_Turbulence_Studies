@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.10.8)  7 SEP 2018 12:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.10.8)  13 SEP 2018 16:53
 entering extended mode
 **D:/My*Documents/Desktop/wwt_Git_Clone/write_up/coherent_structures_dmd_no_vor
 t.tex
@@ -225,293 +225,190 @@ n of long-wavelength,
 
 [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] [4] [5]
 Package epstopdf Info: Source file: <amplitude_wwt_K_128_Lx_128_tf_1pt5e4.eps>
-(epstopdf)                    date: 2018-08-09 09:18:03
-(epstopdf)                    size: 9806680 bytes
+(epstopdf)                    date: 2018-09-12 16:36:56
+(epstopdf)                    size: 10796983 bytes
 (epstopdf)             Output file: <amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-08-09 09:19:45
-(epstopdf)                    size: 949125 bytes
+(epstopdf)                    date: 2018-09-13 09:18:44
+(epstopdf)                    size: 937951 bytes
 (epstopdf)             Command: <epstopdf --outfile=amplitude_wwt_K_128_Lx_128_
 tf_1pt5e4-eps-converted-to.pdf amplitude_wwt_K_128_Lx_128_tf_1pt5e4.eps>
-(epstopdf)             \includegraphics on input line 139.
+(epstopdf)             \includegraphics on input line 165.
 Package epstopdf Info: Output file is already uptodate.
 
-<amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=25, 714.67pt x 4
+<amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=32, 714.67pt x 4
 32.61626pt>
 File: amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: amplitude_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.
-pdf used on input line 139.
+pdf used on input line 165.
 (pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
 Package epstopdf Info: Source file: <mean_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
 
-(epstopdf)                    date: 2018-09-07 10:37:04
-(epstopdf)                    size: 8685778 bytes
+(epstopdf)                    date: 2018-09-12 16:42:48
+(epstopdf)                    size: 8583986 bytes
 (epstopdf)             Output file: <mean_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 10:41:41
-(epstopdf)                    size: 933413 bytes
+(epstopdf)                    date: 2018-09-13 09:18:49
+(epstopdf)                    size: 907859 bytes
 (epstopdf)             Command: <epstopdf --outfile=mean_wwtforce_K_128_Lx_128_
 tf_1_pt5e4-eps-converted-to.pdf mean_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 139.
+(epstopdf)             \includegraphics on input line 165.
 Package epstopdf Info: Output file is already uptodate.
 
-<mean_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=26, 714.67pt x 
+<mean_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=33, 714.67pt x 
 432.61626pt>
 File: mean_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (
 type pdf)
  <use mean_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: mean_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to
-.pdf used on input line 139.
+.pdf used on input line 165.
 (pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
-Package epstopdf Info: Source file: <bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf
-_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-07 10:36:22
-(epstopdf)                    size: 29601 bytes
-(epstopdf)             Output file: <bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf
-_1_pt5e4-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 10:41:41
-(epstopdf)                    size: 13068 bytes
-(epstopdf)             Command: <epstopdf --outfile=bvals_vs_real_lam_wwtforce_
-K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_real_lam_wwtforce_K_128_L
-x_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 141.
-Package epstopdf Info: Output file is already uptodate.
-
-<bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=27
-, 714.67pt x 432.61626pt>
-File: bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf G
-raphic file (type pdf)
-
-<use bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
-Package pdftex.def Info: bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps
--converted-to.pdf used on input line 141.
-(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
-Package epstopdf Info: Source file: <bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf
-_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-07 10:36:37
-(epstopdf)                    size: 28665 bytes
-(epstopdf)             Output file: <bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf
-_1_pt5e4-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 10:41:42
-(epstopdf)                    size: 12591 bytes
-(epstopdf)             Command: <epstopdf --outfile=bvals_vs_imag_lam_wwtforce_
-K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_imag_lam_wwtforce_K_128_L
-x_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 141.
-Package epstopdf Info: Output file is already uptodate.
-
-<bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=28
-, 714.67pt x 432.61626pt>
-File: bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf G
-raphic file (type pdf)
-
-<use bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
-Package pdftex.def Info: bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps
--converted-to.pdf used on input line 141.
-(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
-
-Overfull \hbox (20.6456pt too wide) in paragraph at lines 138--144
- [][] 
- []
-
 Package epstopdf Info: Source file: <osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
 
-(epstopdf)                    date: 2018-09-07 10:37:39
-(epstopdf)                    size: 10122088 bytes
+(epstopdf)                    date: 2018-09-12 16:41:53
+(epstopdf)                    size: 10010708 bytes
 (epstopdf)             Output file: <osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 10:41:47
-(epstopdf)                    size: 949590 bytes
+(epstopdf)                    date: 2018-09-13 09:18:57
+(epstopdf)                    size: 903644 bytes
 (epstopdf)             Command: <epstopdf --outfile=osc1_wwtforce_K_128_Lx_128_
 tf_1_pt5e4-eps-converted-to.pdf osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 150.
+(epstopdf)             \includegraphics on input line 167.
 Package epstopdf Info: Output file is already uptodate.
 
-<osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=29, 714.67pt x 
+<osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=34, 714.67pt x 
 432.61626pt>
 File: osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (
 type pdf)
  <use osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to
-.pdf used on input line 150.
+.pdf used on input line 167.
 (pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
 
-(epstopdf)                    date: 2018-09-07 10:38:33
-(epstopdf)                    size: 9846247 bytes
+(epstopdf)                    date: 2018-09-12 16:41:32
+(epstopdf)                    size: 9294602 bytes
 (epstopdf)             Output file: <osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 10:41:52
-(epstopdf)                    size: 967556 bytes
+(epstopdf)                    date: 2018-09-13 09:19:02
+(epstopdf)                    size: 923057 bytes
 (epstopdf)             Command: <epstopdf --outfile=osc2_wwtforce_K_128_Lx_128_
 tf_1_pt5e4-eps-converted-to.pdf osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 150.
+(epstopdf)             \includegraphics on input line 167.
 Package epstopdf Info: Output file is already uptodate.
 
-<osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=30, 714.67pt x 
+<osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=35, 714.67pt x 
 432.61626pt>
 File: osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (
 type pdf)
  <use osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to
-.pdf used on input line 150.
+.pdf used on input line 167.
 (pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
 
-(epstopdf)                    date: 2018-09-07 10:40:25
-(epstopdf)                    size: 12021916 bytes
+(epstopdf)                    date: 2018-09-12 16:41:13
+(epstopdf)                    size: 11135743 bytes
 (epstopdf)             Output file: <osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 10:42:01
-(epstopdf)                    size: 1071834 bytes
+(epstopdf)                    date: 2018-09-13 09:19:12
+(epstopdf)                    size: 933061 bytes
 (epstopdf)             Command: <epstopdf --outfile=osc3_wwtforce_K_128_Lx_128_
 tf_1_pt5e4-eps-converted-to.pdf osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 152.
+(epstopdf)             \includegraphics on input line 169.
 Package epstopdf Info: Output file is already uptodate.
 
-<osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=31, 714.67pt x 
+<osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=36, 714.67pt x 
 432.61626pt>
 File: osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (
 type pdf)
  <use osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to
-.pdf used on input line 152.
+.pdf used on input line 169.
 (pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
 
-(epstopdf)                    date: 2018-09-07 10:39:32
-(epstopdf)                    size: 11175100 bytes
+(epstopdf)                    date: 2018-09-12 16:39:50
+(epstopdf)                    size: 9290613 bytes
 (epstopdf)             Output file: <osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-
 converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 10:42:10
-(epstopdf)                    size: 933248 bytes
+(epstopdf)                    date: 2018-09-13 09:19:17
+(epstopdf)                    size: 934595 bytes
 (epstopdf)             Command: <epstopdf --outfile=osc4_wwtforce_K_128_Lx_128_
 tf_1_pt5e4-eps-converted-to.pdf osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 152.
+(epstopdf)             \includegraphics on input line 169.
 Package epstopdf Info: Output file is already uptodate.
 
-<osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=32, 714.67pt x 
+<osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=37, 714.67pt x 
 432.61626pt>
 File: osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (
 type pdf)
  <use osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to
-.pdf used on input line 152.
+.pdf used on input line 169.
 (pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 
-Overfull \hbox (19.84604pt too wide) in paragraph at lines 149--155
+Overfull \hbox (25.24582pt too wide) in paragraph at lines 164--172
  [][] 
  []
 
-[4]
 Package epstopdf Info: Source file: <amplitude_lfforce_K_128_Lx_128_tf_1pt5e4.e
 ps>
-(epstopdf)                    date: 2018-09-07 08:24:58
-(epstopdf)                    size: 10781213 bytes
+(epstopdf)                    date: 2018-09-12 16:59:57
+(epstopdf)                    size: 9421003 bytes
 (epstopdf)             Output file: <amplitude_lfforce_K_128_Lx_128_tf_1pt5e4-e
 ps-converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 08:34:31
-(epstopdf)                    size: 942103 bytes
+(epstopdf)                    date: 2018-09-13 09:19:22
+(epstopdf)                    size: 950934 bytes
 (epstopdf)             Command: <epstopdf --outfile=amplitude_lfforce_K_128_Lx_
 128_tf_1pt5e4-eps-converted-to.pdf amplitude_lfforce_K_128_Lx_128_tf_1pt5e4.eps
 >
-(epstopdf)             \includegraphics on input line 166.
+(epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
 
-<amplitude_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=36, 714.67pt
+<amplitude_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=38, 714.67pt
  x 432.61626pt>
 File: amplitude_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic fil
 e (type pdf)
 
 <use amplitude_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: amplitude_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted
--to.pdf used on input line 166.
+-to.pdf used on input line 181.
 (pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
 Package epstopdf Info: Source file: <mean_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-07 08:30:30
-(epstopdf)                    size: 7073709 bytes
+(epstopdf)                    date: 2018-09-12 17:02:12
+(epstopdf)                    size: 5446376 bytes
 (epstopdf)             Output file: <mean_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-09-07 08:34:37
-(epstopdf)                    size: 856390 bytes
+(epstopdf)                    date: 2018-09-13 09:19:25
+(epstopdf)                    size: 799336 bytes
 (epstopdf)             Command: <epstopdf --outfile=mean_lfforce_K_128_Lx_128_t
 f_1_pt5e4-eps-converted-to.pdf mean_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 166.
+(epstopdf)             \includegraphics on input line 181.
 Package epstopdf Info: Output file is already uptodate.
 
-<mean_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=37, 714.67pt x 4
+<mean_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=39, 714.67pt x 4
 32.61626pt>
 File: mean_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use mean_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: mean_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 166.
+pdf used on input line 181.
 (pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
-Package epstopdf Info: Source file: <bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_
-1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-07 08:31:00
-(epstopdf)                    size: 31498 bytes
-(epstopdf)             Output file: <bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_
-1_pt5e4-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 08:34:38
-(epstopdf)                    size: 13801 bytes
-(epstopdf)             Command: <epstopdf --outfile=bvals_vs_real_lam_lfforce_K
-_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_real_lam_lfforce_K_128_Lx_
-128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 168.
-Package epstopdf Info: Output file is already uptodate.
-
-<bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=38,
- 714.67pt x 432.61626pt>
-File: bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Gr
-aphic file (type pdf)
-
-<use bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
-Package pdftex.def Info: bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-
-converted-to.pdf used on input line 168.
-(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
-Package epstopdf Info: Source file: <bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_
-1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-07 08:30:44
-(epstopdf)                    size: 29383 bytes
-(epstopdf)             Output file: <bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_
-1_pt5e4-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 08:34:38
-(epstopdf)                    size: 12991 bytes
-(epstopdf)             Command: <epstopdf --outfile=bvals_vs_imag_lam_lfforce_K
-_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_imag_lam_lfforce_K_128_Lx_
-128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 168.
-Package epstopdf Info: Output file is already uptodate.
-
-<bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=39,
- 714.67pt x 432.61626pt>
-File: bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Gr
-aphic file (type pdf)
-
-<use bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
-Package pdftex.def Info: bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-
-converted-to.pdf used on input line 168.
-(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
-
-Overfull \hbox (20.6456pt too wide) in paragraph at lines 165--171
- [][] 
- []
-
 Package epstopdf Info: Source file: <osc1_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-07 08:30:15
-(epstopdf)                    size: 10102964 bytes
+(epstopdf)                    date: 2018-09-12 17:01:59
+(epstopdf)                    size: 9608636 bytes
 (epstopdf)             Output file: <osc1_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-09-07 08:34:44
-(epstopdf)                    size: 938755 bytes
+(epstopdf)                    date: 2018-09-13 09:19:34
+(epstopdf)                    size: 899988 bytes
 (epstopdf)             Command: <epstopdf --outfile=osc1_lfforce_K_128_Lx_128_t
 f_1_pt5e4-eps-converted-to.pdf osc1_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 177.
+(epstopdf)             \includegraphics on input line 183.
 Package epstopdf Info: Output file is already uptodate.
 
 <osc1_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=40, 714.67pt x 4
@@ -520,18 +417,18 @@ File: osc1_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use osc1_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: osc1_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 177.
+pdf used on input line 183.
 (pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <osc2_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-07 08:29:51
-(epstopdf)                    size: 8772492 bytes
+(epstopdf)                    date: 2018-09-12 17:01:38
+(epstopdf)                    size: 9756780 bytes
 (epstopdf)             Output file: <osc2_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-09-07 08:34:49
-(epstopdf)                    size: 947036 bytes
+(epstopdf)                    date: 2018-09-13 09:19:41
+(epstopdf)                    size: 880909 bytes
 (epstopdf)             Command: <epstopdf --outfile=osc2_lfforce_K_128_Lx_128_t
 f_1_pt5e4-eps-converted-to.pdf osc2_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 177.
+(epstopdf)             \includegraphics on input line 183.
 Package epstopdf Info: Output file is already uptodate.
 
 <osc2_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=41, 714.67pt x 4
@@ -540,18 +437,18 @@ File: osc2_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use osc2_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: osc2_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 177.
+pdf used on input line 183.
 (pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <osc3_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-07 08:29:27
-(epstopdf)                    size: 9935972 bytes
+(epstopdf)                    date: 2018-09-12 17:01:19
+(epstopdf)                    size: 10034657 bytes
 (epstopdf)             Output file: <osc3_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-09-07 08:34:54
-(epstopdf)                    size: 973253 bytes
+(epstopdf)                    date: 2018-09-13 09:19:48
+(epstopdf)                    size: 871535 bytes
 (epstopdf)             Command: <epstopdf --outfile=osc3_lfforce_K_128_Lx_128_t
 f_1_pt5e4-eps-converted-to.pdf osc3_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 179.
+(epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
 <osc3_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=42, 714.67pt x 4
@@ -560,18 +457,18 @@ File: osc3_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use osc3_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: osc3_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 179.
+pdf used on input line 185.
 (pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 Package epstopdf Info: Source file: <osc4_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-07 08:25:21
-(epstopdf)                    size: 9807147 bytes
+(epstopdf)                    date: 2018-09-12 17:00:55
+(epstopdf)                    size: 8620419 bytes
 (epstopdf)             Output file: <osc4_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-09-07 08:35:00
-(epstopdf)                    size: 924342 bytes
+(epstopdf)                    date: 2018-09-13 09:19:52
+(epstopdf)                    size: 868147 bytes
 (epstopdf)             Command: <epstopdf --outfile=osc4_lfforce_K_128_Lx_128_t
 f_1_pt5e4-eps-converted-to.pdf osc4_lfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 179.
+(epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 
 <osc4_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=43, 714.67pt x 4
@@ -580,238 +477,469 @@ File: osc4_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use osc4_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: osc4_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 179.
+pdf used on input line 185.
 (pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
 
-Overfull \hbox (19.84604pt too wide) in paragraph at lines 176--182
+Overfull \hbox (25.24582pt too wide) in paragraph at lines 180--188
  [][] 
  []
 
-[5 <D:/My Documents/Desktop/wwt_Git_Clone/write_up/amplitude_wwt_K_128_Lx_128_t
-f_1pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/
-mean_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/De
-sktop/wwt_Git_Clone/write_up/bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4
--eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/bvals_vs
-_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>]
+[6]
 Package epstopdf Info: Source file: <amplitude_hfforce_K_128_Lx_128_tf_1pt5e4.e
 ps>
-(epstopdf)                    date: 2018-09-06 16:50:40
-(epstopdf)                    size: 9797768 bytes
+(epstopdf)                    date: 2018-09-13 08:51:40
+(epstopdf)                    size: 10270473 bytes
 (epstopdf)             Output file: <amplitude_hfforce_K_128_Lx_128_tf_1pt5e4-e
 ps-converted-to.pdf>
-(epstopdf)                    date: 2018-09-07 08:35:05
-(epstopdf)                    size: 1037525 bytes
+(epstopdf)                    date: 2018-09-13 09:19:57
+(epstopdf)                    size: 1045074 bytes
 (epstopdf)             Command: <epstopdf --outfile=amplitude_hfforce_K_128_Lx_
 128_tf_1pt5e4-eps-converted-to.pdf amplitude_hfforce_K_128_Lx_128_tf_1pt5e4.eps
 >
-(epstopdf)             \includegraphics on input line 192.
+(epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 
-<amplitude_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=61, 714.67pt
- x 475.7775pt>
+<amplitude_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=47, 714.67pt
+ x 432.61626pt>
 File: amplitude_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic fil
 e (type pdf)
 
 <use amplitude_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: amplitude_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted
--to.pdf used on input line 192.
-(pdftex.def)             Requested size: 183.59802pt x 122.2255pt.
+-to.pdf used on input line 199.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
 Package epstopdf Info: Source file: <mean_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-06 16:50:57
-(epstopdf)                    size: 3783640 bytes
+(epstopdf)                    date: 2018-09-13 09:01:08
+(epstopdf)                    size: 1877473 bytes
 (epstopdf)             Output file: <mean_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-09-06 16:56:07
-(epstopdf)                    size: 552126 bytes
+(epstopdf)                    date: 2018-09-13 09:19:59
+(epstopdf)                    size: 249680 bytes
 (epstopdf)             Command: <epstopdf --outfile=mean_hfforce_K_128_Lx_128_t
 f_1_pt5e4-eps-converted-to.pdf mean_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 192.
+(epstopdf)             \includegraphics on input line 199.
 Package epstopdf Info: Output file is already uptodate.
 
-<mean_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=62, 714.67pt x 4
-75.7775pt>
+<mean_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=48, 714.67pt x 4
+32.61626pt>
 File: mean_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
 ype pdf)
  <use mean_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: mean_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 192.
-(pdftex.def)             Requested size: 183.59802pt x 122.2255pt.
+pdf used on input line 199.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+Package epstopdf Info: Source file: <osc1_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-13 09:00:55
+(epstopdf)                    size: 11831896 bytes
+(epstopdf)             Output file: <osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:20:06
+(epstopdf)                    size: 1227820 bytes
+(epstopdf)             Command: <epstopdf --outfile=osc1_hfforce_K_128_Lx_128_t
+f_1_pt5e4-eps-converted-to.pdf osc1_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 201.
+Package epstopdf Info: Output file is already uptodate.
+
+<osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=49, 714.67pt x 4
+32.61626pt>
+File: osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
+ype pdf)
+ <use osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
+pdf used on input line 201.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
+Package epstopdf Info: Source file: <osc2_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-13 08:59:12
+(epstopdf)                    size: 11821831 bytes
+(epstopdf)             Output file: <osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:20:12
+(epstopdf)                    size: 1235282 bytes
+(epstopdf)             Command: <epstopdf --outfile=osc2_hfforce_K_128_Lx_128_t
+f_1_pt5e4-eps-converted-to.pdf osc2_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 201.
+Package epstopdf Info: Output file is already uptodate.
+
+<osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=50, 714.67pt x 4
+32.61626pt>
+File: osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
+ype pdf)
+ <use osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
+pdf used on input line 201.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
+Package epstopdf Info: Source file: <osc3_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-13 08:53:29
+(epstopdf)                    size: 12398936 bytes
+(epstopdf)             Output file: <osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:20:20
+(epstopdf)                    size: 1218399 bytes
+(epstopdf)             Command: <epstopdf --outfile=osc3_hfforce_K_128_Lx_128_t
+f_1_pt5e4-eps-converted-to.pdf osc3_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 203.
+Package epstopdf Info: Output file is already uptodate.
+
+<osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=51, 714.67pt x 4
+32.61626pt>
+File: osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
+ype pdf)
+ <use osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
+pdf used on input line 203.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
+Package epstopdf Info: Source file: <osc4_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-13 08:53:08
+(epstopdf)                    size: 5930271 bytes
+(epstopdf)             Output file: <osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:20:24
+(epstopdf)                    size: 865570 bytes
+(epstopdf)             Command: <epstopdf --outfile=osc4_hfforce_K_128_Lx_128_t
+f_1_pt5e4-eps-converted-to.pdf osc4_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 203.
+Package epstopdf Info: Output file is already uptodate.
+
+<osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=52, 714.67pt x 4
+32.61626pt>
+File: osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
+ype pdf)
+ <use osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
+pdf used on input line 203.
+(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
+
+Overfull \hbox (25.24582pt too wide) in paragraph at lines 198--206
+ [][] 
+ []
+
+[7 <D:/My Documents/Desktop/wwt_Git_Clone/write_up/amplitude_wwt_K_128_Lx_128_t
+f_1pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/
+mean_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/De
+sktop/wwt_Git_Clone/write_up/osc1_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converte
+d-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/osc2_wwtforce_K_128_L
+x_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/w
+rite_up/osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Docu
+ments/Desktop/wwt_Git_Clone/write_up/osc4_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-
+converted-to.pdf>]
+Package epstopdf Info: Source file: <bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf
+_1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-12 16:43:24
+(epstopdf)                    size: 51324 bytes
+(epstopdf)             Output file: <bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf
+_1_pt5e4-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:18:49
+(epstopdf)                    size: 28331 bytes
+(epstopdf)             Command: <epstopdf --outfile=bvals_vs_real_lam_wwtforce_
+K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_real_lam_wwtforce_K_128_L
+x_128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 215.
+Package epstopdf Info: Output file is already uptodate.
+
+<bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=81
+, 714.67pt x 432.61626pt>
+File: bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf G
+raphic file (type pdf)
+
+<use bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps
+-converted-to.pdf used on input line 215.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+Package epstopdf Info: Source file: <bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf
+_1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-12 16:43:01
+(epstopdf)                    size: 49412 bytes
+(epstopdf)             Output file: <bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf
+_1_pt5e4-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:18:50
+(epstopdf)                    size: 28317 bytes
+(epstopdf)             Command: <epstopdf --outfile=bvals_vs_imag_lam_wwtforce_
+K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_imag_lam_wwtforce_K_128_L
+x_128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 215.
+Package epstopdf Info: Output file is already uptodate.
+
+<bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=82
+, 714.67pt x 432.61626pt>
+File: bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf G
+raphic file (type pdf)
+
+<use bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: bvals_vs_imag_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps
+-converted-to.pdf used on input line 215.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+Package epstopdf Info: Source file: <bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_
+1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-12 17:02:35
+(epstopdf)                    size: 51982 bytes
+(epstopdf)             Output file: <bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_
+1_pt5e4-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:19:26
+(epstopdf)                    size: 28239 bytes
+(epstopdf)             Command: <epstopdf --outfile=bvals_vs_real_lam_lfforce_K
+_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_real_lam_lfforce_K_128_Lx_
+128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 217.
+Package epstopdf Info: Output file is already uptodate.
+
+<bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=83,
+ 714.67pt x 432.61626pt>
+File: bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Gr
+aphic file (type pdf)
+
+<use bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-
+converted-to.pdf used on input line 217.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+Package epstopdf Info: Source file: <bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_
+1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-12 17:02:25
+(epstopdf)                    size: 49862 bytes
+(epstopdf)             Output file: <bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_
+1_pt5e4-eps-converted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:19:26
+(epstopdf)                    size: 28287 bytes
+(epstopdf)             Command: <epstopdf --outfile=bvals_vs_imag_lam_lfforce_K
+_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_imag_lam_lfforce_K_128_Lx_
+128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 217.
+Package epstopdf Info: Output file is already uptodate.
+
+<bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=84,
+ 714.67pt x 432.61626pt>
+File: bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Gr
+aphic file (type pdf)
+
+<use bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-
+converted-to.pdf used on input line 217.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
 Package epstopdf Info: Source file: <bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_
 1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-06 16:48:13
-(epstopdf)                    size: 33137 bytes
+(epstopdf)                    date: 2018-09-13 09:04:06
+(epstopdf)                    size: 50920 bytes
 (epstopdf)             Output file: <bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_
 1_pt5e4-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-09-06 16:56:07
-(epstopdf)                    size: 15438 bytes
+(epstopdf)                    date: 2018-09-13 09:19:59
+(epstopdf)                    size: 27970 bytes
 (epstopdf)             Command: <epstopdf --outfile=bvals_vs_real_lam_hfforce_K
 _128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_real_lam_hfforce_K_128_Lx_
 128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 194.
+(epstopdf)             \includegraphics on input line 219.
 Package epstopdf Info: Output file is already uptodate.
 
-<bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=63,
- 714.67pt x 475.7775pt>
+<bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=85,
+ 714.67pt x 432.61626pt>
 File: bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Gr
 aphic file (type pdf)
 
 <use bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-
-converted-to.pdf used on input line 194.
-(pdftex.def)             Requested size: 183.59802pt x 122.2255pt.
+converted-to.pdf used on input line 219.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
 Package epstopdf Info: Source file: <bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf_
 1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-06 16:49:05
-(epstopdf)                    size: 31168 bytes
+(epstopdf)                    date: 2018-09-13 09:03:28
+(epstopdf)                    size: 49002 bytes
 (epstopdf)             Output file: <bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf_
 1_pt5e4-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-09-06 16:56:08
-(epstopdf)                    size: 14695 bytes
+(epstopdf)                    date: 2018-09-13 09:20:00
+(epstopdf)                    size: 27989 bytes
 (epstopdf)             Command: <epstopdf --outfile=bvals_vs_imag_lam_hfforce_K
 _128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf bvals_vs_imag_lam_hfforce_K_128_Lx_
 128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 194.
+(epstopdf)             \includegraphics on input line 219.
 Package epstopdf Info: Output file is already uptodate.
 
-<bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=64,
+<bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=86,
  714.67pt x 432.61626pt>
 File: bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Gr
 aphic file (type pdf)
 
 <use bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
 Package pdftex.def Info: bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-
-converted-to.pdf used on input line 194.
-(pdftex.def)             Requested size: 183.59802pt x 111.13753pt.
+converted-to.pdf used on input line 219.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
 
-Overfull \hbox (19.84604pt too wide) in paragraph at lines 191--197
+Overfull \hbox (20.6456pt too wide) in paragraph at lines 214--222
  [][] 
  []
 
-Package epstopdf Info: Source file: <osc1_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-06 16:52:24
-(epstopdf)                    size: 11505314 bytes
-(epstopdf)             Output file: <osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
-onverted-to.pdf>
-(epstopdf)                    date: 2018-09-06 16:59:00
-(epstopdf)                    size: 981803 bytes
-(epstopdf)             Command: <epstopdf --outfile=osc1_hfforce_K_128_Lx_128_t
-f_1_pt5e4-eps-converted-to.pdf osc1_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 203.
+[8 <D:/My Documents/Desktop/wwt_Git_Clone/write_up/amplitude_lfforce_K_128_Lx_1
+28_tf_1pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write
+_up/mean_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents
+/Desktop/wwt_Git_Clone/write_up/osc1_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-conver
+ted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/osc2_lfforce_K_128_
+Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/
+write_up/osc3_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Docu
+ments/Desktop/wwt_Git_Clone/write_up/osc4_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
+onverted-to.pdf>] [9 <D:/My Documents/Desktop/wwt_Git_Clone/write_up/amplitude_
+hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/w
+wt_Git_Clone/write_up/mean_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf
+> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/osc1_hfforce_K_128_Lx_128_tf_
+1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/o
+sc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desk
+top/wwt_Git_Clone/write_up/osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-t
+o.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/osc4_hfforce_K_128_Lx_12
+8_tf_1_pt5e4-eps-converted-to.pdf>] [10 <D:/My Documents/Desktop/wwt_Git_Clone/
+write_up/bvals_vs_real_lam_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pd
+f> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/bvals_vs_imag_lam_wwtforce_K
+_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_C
+lone/write_up/bvals_vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-t
+o.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/bvals_vs_imag_lam_lfforc
+e_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Gi
+t_Clone/write_up/bvals_vs_real_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converte
+d-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/bvals_vs_imag_lam_hff
+orce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <full_spec_wwt_K_128_Lx_128_tf_1_pt5e4.eps>
+
+(epstopdf)                    date: 2018-09-12 16:39:29
+(epstopdf)                    size: 73354 bytes
+(epstopdf)             Output file: <full_spec_wwt_K_128_Lx_128_tf_1_pt5e4-eps-
+converted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:24:36
+(epstopdf)                    size: 43309 bytes
+(epstopdf)             Command: <epstopdf --outfile=full_spec_wwt_K_128_Lx_128_
+tf_1_pt5e4-eps-converted-to.pdf full_spec_wwt_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 232.
 Package epstopdf Info: Output file is already uptodate.
 
-<osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=65, 714.67pt x 4
-75.7775pt>
-File: osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
-ype pdf)
- <use osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
-Package pdftex.def Info: osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 203.
-(pdftex.def)             Requested size: 183.59802pt x 122.2255pt.
-Package epstopdf Info: Source file: <osc2_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-06 16:53:07
-(epstopdf)                    size: 11368518 bytes
-(epstopdf)             Output file: <osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
-onverted-to.pdf>
-(epstopdf)                    date: 2018-09-06 16:59:07
-(epstopdf)                    size: 1117559 bytes
-(epstopdf)             Command: <epstopdf --outfile=osc2_hfforce_K_128_Lx_128_t
-f_1_pt5e4-eps-converted-to.pdf osc2_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 203.
+<full_spec_wwt_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=162, 714.67pt x
+ 432.61626pt>
+File: full_spec_wwt_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (
+type pdf)
+ <use full_spec_wwt_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: full_spec_wwt_K_128_Lx_128_tf_1_pt5e4-eps-converted-to
+.pdf used on input line 232.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+Package epstopdf Info: Source file: <cratio_wwt_K_128_Lx_128_tf_1pt5e4.eps>
+(epstopdf)                    date: 2018-09-12 16:37:55
+(epstopdf)                    size: 35621 bytes
+(epstopdf)             Output file: <cratio_wwt_K_128_Lx_128_tf_1pt5e4-eps-conv
+erted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:24:36
+(epstopdf)                    size: 11609 bytes
+(epstopdf)             Command: <epstopdf --outfile=cratio_wwt_K_128_Lx_128_tf_
+1pt5e4-eps-converted-to.pdf cratio_wwt_K_128_Lx_128_tf_1pt5e4.eps>
+(epstopdf)             \includegraphics on input line 232.
 Package epstopdf Info: Output file is already uptodate.
 
-<osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=66, 714.67pt x 4
-75.7775pt>
-File: osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
-ype pdf)
- <use osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
-Package pdftex.def Info: osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 203.
-(pdftex.def)             Requested size: 183.59802pt x 122.2255pt.
-Package epstopdf Info: Source file: <osc3_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-06 16:54:02
-(epstopdf)                    size: 12416108 bytes
-(epstopdf)             Output file: <osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
+<cratio_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=163, 714.67pt x 432
+.61626pt>
+File: cratio_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (type
+ pdf)
+ <use cratio_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: cratio_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf
+ used on input line 232.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+Package epstopdf Info: Source file: <full_spec_lf_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-12 17:00:14
+(epstopdf)                    size: 73130 bytes
+(epstopdf)             Output file: <full_spec_lf_K_128_Lx_128_tf_1_pt5e4-eps-c
 onverted-to.pdf>
-(epstopdf)                    date: 2018-09-06 16:59:15
-(epstopdf)                    size: 1180067 bytes
-(epstopdf)             Command: <epstopdf --outfile=osc3_hfforce_K_128_Lx_128_t
-f_1_pt5e4-eps-converted-to.pdf osc3_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 205.
+(epstopdf)                    date: 2018-09-13 09:33:58
+(epstopdf)                    size: 44007 bytes
+(epstopdf)             Command: <epstopdf --outfile=full_spec_lf_K_128_Lx_128_t
+f_1_pt5e4-eps-converted-to.pdf full_spec_lf_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 234.
 Package epstopdf Info: Output file is already uptodate.
 
-<osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=67, 714.67pt x 4
-75.7775pt>
-File: osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
+<full_spec_lf_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=164, 714.67pt x 
+432.61626pt>
+File: full_spec_lf_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
 ype pdf)
- <use osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
-Package pdftex.def Info: osc3_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 205.
-(pdftex.def)             Requested size: 183.59802pt x 122.2255pt.
-Package epstopdf Info: Source file: <osc4_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)                    date: 2018-09-06 16:57:44
-(epstopdf)                    size: 9889364 bytes
-(epstopdf)             Output file: <osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-c
-onverted-to.pdf>
-(epstopdf)                    date: 2018-09-06 16:59:21
-(epstopdf)                    size: 964821 bytes
-(epstopdf)             Command: <epstopdf --outfile=osc4_hfforce_K_128_Lx_128_t
-f_1_pt5e4-eps-converted-to.pdf osc4_hfforce_K_128_Lx_128_tf_1_pt5e4.eps>
-(epstopdf)             \includegraphics on input line 205.
+ <use full_spec_lf_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: full_spec_lf_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
+pdf used on input line 234.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+Package epstopdf Info: Source file: <cratio_lfforce_K_128_Lx_128_tf_1pt5e4.eps>
+
+(epstopdf)                    date: 2018-09-12 16:59:35
+(epstopdf)                    size: 35381 bytes
+(epstopdf)             Output file: <cratio_lfforce_K_128_Lx_128_tf_1pt5e4-eps-
+converted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:34:06
+(epstopdf)                    size: 11288 bytes
+(epstopdf)             Command: <epstopdf --outfile=cratio_lfforce_K_128_Lx_128
+_tf_1pt5e4-eps-converted-to.pdf cratio_lfforce_K_128_Lx_128_tf_1pt5e4.eps>
+(epstopdf)             \includegraphics on input line 234.
 Package epstopdf Info: Output file is already uptodate.
 
-<osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=68, 714.67pt x 4
-75.7775pt>
-File: osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
-ype pdf)
- <use osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
-Package pdftex.def Info: osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
-pdf used on input line 205.
-(pdftex.def)             Requested size: 183.59802pt x 122.2255pt.
+<cratio_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=165, 714.67pt x
+ 432.61626pt>
+File: cratio_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (
+type pdf)
+ <use cratio_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: cratio_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to
+.pdf used on input line 234.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+Package epstopdf Info: Source file: <full_spec_hf_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)                    date: 2018-09-13 08:52:52
+(epstopdf)                    size: 73379 bytes
+(epstopdf)             Output file: <full_spec_hf_K_128_Lx_128_tf_1_pt5e4-eps-c
+onverted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:38:48
+(epstopdf)                    size: 42776 bytes
+(epstopdf)             Command: <epstopdf --outfile=full_spec_hf_K_128_Lx_128_t
+f_1_pt5e4-eps-converted-to.pdf full_spec_hf_K_128_Lx_128_tf_1_pt5e4.eps>
+(epstopdf)             \includegraphics on input line 236.
+Package epstopdf Info: Output file is already uptodate.
 
-Overfull \hbox (19.84604pt too wide) in paragraph at lines 202--208
+<full_spec_hf_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf, id=166, 714.67pt x 
+432.61626pt>
+File: full_spec_hf_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf Graphic file (t
+ype pdf)
+ <use full_spec_hf_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: full_spec_hf_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.
+pdf used on input line 236.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+Package epstopdf Info: Source file: <cratio_hfforce_K_128_Lx_128_tf_1pt5e4.eps>
+
+(epstopdf)                    date: 2018-09-13 08:51:18
+(epstopdf)                    size: 35244 bytes
+(epstopdf)             Output file: <cratio_hfforce_K_128_Lx_128_tf_1pt5e4-eps-
+converted-to.pdf>
+(epstopdf)                    date: 2018-09-13 09:38:49
+(epstopdf)                    size: 12842 bytes
+(epstopdf)             Command: <epstopdf --outfile=cratio_hfforce_K_128_Lx_128
+_tf_1pt5e4-eps-converted-to.pdf cratio_hfforce_K_128_Lx_128_tf_1pt5e4.eps>
+(epstopdf)             \includegraphics on input line 236.
+Package epstopdf Info: Output file is already uptodate.
+
+<cratio_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf, id=167, 714.67pt x
+ 432.61626pt>
+File: cratio_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf Graphic file (
+type pdf)
+ <use cratio_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf>
+Package pdftex.def Info: cratio_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to
+.pdf used on input line 236.
+(pdftex.def)             Requested size: 188.9978pt x 114.40512pt.
+
+Overfull \hbox (20.6456pt too wide) in paragraph at lines 231--239
  [][] 
  []
 
-[6 <D:/My Documents/Desktop/wwt_Git_Clone/write_up/osc1_wwtforce_K_128_Lx_128_t
-f_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up
-/osc2_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/D
-esktop/wwt_Git_Clone/write_up/osc3_wwtforce_K_128_Lx_128_tf_1_pt5e4-eps-convert
-ed-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/osc4_wwtforce_K_128_
-Lx_128_tf_1_pt5e4-eps-converted-to.pdf>] [7 <D:/My Documents/Desktop/wwt_Git_Cl
-one/write_up/amplitude_lfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf> <D:
-/My Documents/Desktop/wwt_Git_Clone/write_up/mean_lfforce_K_128_Lx_128_tf_1_pt5
-e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/bvals_
-vs_real_lam_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Docume
-nts/Desktop/wwt_Git_Clone/write_up/bvals_vs_imag_lam_lfforce_K_128_Lx_128_tf_1_
-pt5e4-eps-converted-to.pdf>]
+[11 <D:/My Documents/Desktop/wwt_Git_Clone/write_up/full_spec_wwt_K_128_Lx_128_
+tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_u
+p/cratio_wwt_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf> <D:/My Documents/Desk
+top/wwt_Git_Clone/write_up/full_spec_lf_K_128_Lx_128_tf_1_pt5e4-eps-converted-t
+o.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/cratio_lfforce_K_128_Lx_
+128_tf_1pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/writ
+e_up/full_spec_hf_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Document
+s/Desktop/wwt_Git_Clone/write_up/cratio_hfforce_K_128_Lx_128_tf_1pt5e4-eps-conv
+erted-to.pdf>]
 ("D:\My Documents\Desktop\wwt_Git_Clone\write_up\coherent_structures_dmd_no_vor
-t.bbl" [8 <D:/My Documents/Desktop/wwt_Git_Clone/write_up/osc1_lfforce_K_128_Lx
-_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/wr
-ite_up/osc2_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Docume
-nts/Desktop/wwt_Git_Clone/write_up/osc3_lfforce_K_128_Lx_128_tf_1_pt5e4-eps-con
-verted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/osc4_lfforce_K_1
-28_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>] [9 <D:/My Documents/Desktop/wwt_Git
-_Clone/write_up/amplitude_hfforce_K_128_Lx_128_tf_1pt5e4-eps-converted-to.pdf> 
-<D:/My Documents/Desktop/wwt_Git_Clone/write_up/mean_hfforce_K_128_Lx_128_tf_1_
-pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/bva
-ls_vs_real_lam_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Doc
-uments/Desktop/wwt_Git_Clone/write_up/bvals_vs_imag_lam_hfforce_K_128_Lx_128_tf
-_1_pt5e4-eps-converted-to.pdf>]) [10 <D:/My Documents/Desktop/wwt_Git_Clone/wri
-te_up/osc1_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documen
-ts/Desktop/wwt_Git_Clone/write_up/osc2_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-conv
-erted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clone/write_up/osc3_hfforce_K_12
-8_Lx_128_tf_1_pt5e4-eps-converted-to.pdf> <D:/My Documents/Desktop/wwt_Git_Clon
-e/write_up/osc4_hfforce_K_128_Lx_128_tf_1_pt5e4-eps-converted-to.pdf>]
+t.bbl" [12]) [13]
 ("D:\My Documents\Desktop\wwt_Git_Clone\write_up\coherent_structures_dmd_no_vor
 t.aux") ) 
 Here is how much of TeX's memory you used:
- 2562 strings out of 493921
- 39393 string characters out of 3147276
- 91898 words of memory out of 3000000
- 5788 multiletter control sequences out of 15000+200000
+ 2591 strings out of 493921
+ 41110 string characters out of 3147276
+ 90891 words of memory out of 3000000
+ 5811 multiletter control sequences out of 15000+200000
  12319 words of font info for 46 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 42i,12n,26p,1253b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,12n,26p,1245b,310s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program File
@@ -821,15 +949,16 @@ ts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on coherent_structures_dmd_no_vort.pdf (10 pages, 17462290 bytes
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Prog
+ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb>
+Output written on coherent_structures_dmd_no_vort.pdf (13 pages, 17160284 bytes
 ).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
+ 247 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 

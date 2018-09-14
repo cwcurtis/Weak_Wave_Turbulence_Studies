@@ -2,7 +2,7 @@ function nls_psuedo_solver(K,Llx,tf,Nv)
 
     tic
 
-    dt = .01; 
+    dt = .1; 
     Nsteps = tf/dt;
     KT = 2*K;
     
@@ -17,7 +17,9 @@ function nls_psuedo_solver(K,Llx,tf,Nv)
     Lap = 1i*(Dx2+Dy2);
     Eop = exp(dt*Lap);
 
-    Nstart = 1000;
+    Nstart = round(.6*Nsteps);
+    tscale = dt*(Nsteps-Nstart);
+    fprintf("Time scale for sampling is: %1.5f\n\n",tscale)
     Nint = 5;
     acnt = 0;
     
@@ -51,7 +53,7 @@ function nls_psuedo_solver(K,Llx,tf,Nv)
             if mod(jj,Nint)==0
                 uphys = ifft2(reshape(un,KT,KT));                   
                 if jj == Nstart
-                    ptnzr = abs(uphys);
+                    ptnzr = abs(uphys(:));
                 end
                 DMDmat(:,acnt+1) = abs(uphys(:));
                 acnt = acnt + 1;
@@ -71,42 +73,79 @@ function nls_psuedo_solver(K,Llx,tf,Nv)
         V2 = U'*V2*W*iSig;
         [evecs,evals] = eigs(V2,acnt-1);
         devals = diag(evals);
-        evecs = U*evecs;
+        evecs = U*evecs*diag(1./vecnorm(evecs));
         
-        bspread = evecs\ptnzr(:);
-        mdmags = (devals.^(dt*Nint*acnt)).*bspread;
-        [~,Iinds] = sort(abs(mdmags),'descend');        
-              
-        efin1 = reshape(evecs(:,Iinds(1)),KT,KT);
-        efin2 = reshape(evecs(:,Iinds(2)),KT,KT);
+        bspread = evecs\ptnzr;
+        cdevals = log(devals)/(Nint*dt);
+        coff = -.05;
+        svdinds = real(cdevals) >= coff;
+        fprintf("Real part cutoff is: %1.5f\n\n",coff);
+        gvinds = real(cdevals) > 0.05;
+        rminds = imag(cdevals) >= 0;
+        tinds = logical(rminds.*svdinds.*(1-gvinds));
+        
+        nopsv = sum(gvinds);
+        
+        brm = bspread(tinds);
+        dvrm = cdevals(tinds);
+        rvcs = evecs(:,tinds);
+        
+        pcnt = sum(log10(abs(brm))>=1);
+                
+        [~,maxinds] = sort(abs(brm),'descend');
         
         figure(1)
-        surf(Xmesh,Xmesh,abs(mdmags(Iinds(1))*efin1),'LineStyle','none')
+        scatter(real(dvrm),log10(abs(brm)),20,'filled')
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
-        xlabel('$x$','Interpreter','LaTeX','FontSize',30)
-        ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
-    
+        xlabel('$\mbox{Re}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\log_{10}|b_{j}|$','Interpreter','LaTeX','FontSize',30) 
+        
         figure(2)
-        surf(Xmesh,Xmesh,abs(mdmags(Iinds(2))*efin2),'LineStyle','none')
+        scatter(imag(dvrm),log10(abs(brm)),20,'filled')                
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
-        xlabel('$x$','Interpreter','LaTeX','FontSize',30)
-        ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
+        xlabel('$\mbox{Im}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\log_{10}|b_{j}|$','Interpreter','LaTeX','FontSize',30) 
+        
+        %{
+        for mm=1:pcnt
+            figure(mm+2)
+            surf(Xmesh,Xmesh,abs(brm(maxinds(mm))*reshape(rvcs(:,maxinds(mm)),KT,KT)),'LineStyle','none')
+            h = set(gca,'FontSize',30);
+            set(h,'Interpreter','LaTeX')
+            xlabel('$x$','Interpreter','LaTeX','FontSize',30)
+            ylabel('$y$','Interpreter','LaTeX','FontSize',30) 
+            eval = dvrm(maxinds(mm));
+            txt = sprintf('$$\\lambda: %1.4f + %1.4f i$$',real(eval),imag(eval));
+            title(txt,'interpreter','latex')
+        end
+        %}
+        
+        errvec = zeros(acnt-1,1);
+        tsamp = zeros(acnt-1,1);
+        epow = ones(length(devals),1);
+        for mm=1:acnt-1
+            approx = evecs(:,svdinds)*(epow(svdinds).*bspread(svdinds));
+            errvec(mm) = norm(approx-DMDmat(:,mm),'inf')/norm(DMDmat(:,mm),'inf');
+            tsamp(mm) = dt*(Nstart + (mm-1)*Nint);
+            epow = epow.*devals;
+        end
         
         figure(3)
-        plot(1:length(bspread),log10(abs((devals(Iinds)).^(dt*Nint*acnt).*bspread(Iinds))),'k','LineWidth',2)
+        scatter(real(cdevals),imag(cdevals),10,'filled')        
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
-        xlabel('$n$','Interpreter','LaTeX','FontSize',30)
-        ylabel('$\mbox{log}_{10}|b_{n}|$','Interpreter','LaTeX','FontSize',30)    
+        xlabel('$\mbox{Re}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$\mbox{Im}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30) 
         
         figure(4)
-        plot(1:length(devals),log10(abs(devals(Iinds))),'k','LineWidth',2)
+        plot(tsamp,log10(errvec),'k-','LineWidth',2)
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
-        xlabel('$n$','Interpreter','LaTeX','FontSize',30)
-        ylabel('$\mbox{log}_{10}|\mu_{n}|$','Interpreter','LaTeX','FontSize',30)               
+        xlabel('$t_{s}$','Interpreter','LaTeX','FontSize',30)
+        ylabel('$E(t_{s})$','Interpreter','LaTeX','FontSize',30) 
+                
     end
     
     ufin = ifft2(reshape(un,KT,KT));
@@ -116,15 +155,8 @@ function nls_psuedo_solver(K,Llx,tf,Nv)
     h = set(gca,'FontSize',30);
     set(h,'Interpreter','LaTeX')
     xlabel('$x$','Interpreter','LaTeX','FontSize',30)
-    ylabel('$y$','Interpreter','LaTeX','FontSize',30)    
-    
-    figure(6)
-    surf(Xmesh,Xmesh,log10(abs(abs(ufin)-abs(mdmags(Iinds(1))*efin1))),'LineStyle','none')
-    h = set(gca,'FontSize',30);
-    set(h,'Interpreter','LaTeX')
-    xlabel('$x$','Interpreter','LaTeX','FontSize',30)
     ylabel('$y$','Interpreter','LaTeX','FontSize',30)
-        
+    
     toc
 end
 
