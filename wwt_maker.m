@@ -20,16 +20,26 @@ function wwt_maker(K,Llx,tf)
     Kl = 60;
     Kh = 63;
 
+    Dds = 1i*pi/Llx*[0:K-1 0 -K+1:-1]'; 
+    Dxs = kron(Dds,ones(KT,1));
+    Dys = kron(ones(KT,1),Dds);
+    
+    Dxs2 = Dxs.^2;
+    Dys2 = Dys.^2;
+        
     Dd = 1i*pi/Llx*[0:K -K+1:-1]';
     Dx = kron(Dd,ones(KT,1));
     Dy = kron(ones(KT,1),Dd);
+    
     Dx2 = Dx.^2;
     Dy2 = Dy.^2;
+    
     Dhyp = (-(Dx2+Dy2)).^(n);
     iDhyp = 1./Dhyp;
     indsrmv = isinf(iDhyp);
-    iDhyp(indsrmv) = 0;
-    Lap = 1i*(Dx2+Dy2) - nuh*Dhyp - nul*iDhyp;
+    iDhyp(indsrmv) = 1;
+    
+    Lap = 1i*(Dxs2+Dys2) - nuh*Dhyp - nul*iDhyp;
     Eop = exp(dt*Lap);
 
     f0 = zeros(KT^2,1);
@@ -40,7 +50,8 @@ function wwt_maker(K,Llx,tf)
     f0(indsc) = 1;
     f0 = reshape(f0,KT,KT);
     f0 = f0c*f0;
-    
+    f0 = fft2(real(ifftshift(ifft2(f0))));
+                
     un = zeros(KT^2,1);
     uavg = zeros(KT^2,1);
     
@@ -173,17 +184,29 @@ function wwt_maker(K,Llx,tf)
             
             epow = epow.*devals;
         end
+        Kvec = -K+1:K;
         
-        for ll=1:pcnt
-            figure(ll+2)
-            surf(Xmesh,Xmesh,reshape(modes(:,ll),KT,KT),'LineStyle','none')
+        for ll=1:4            
+            cmode = reshape(modes(:,ll),KT,KT);
+            eval = revals(ll);
+            
+            figure(2*(ll-1)+1+2)
+            surf(Xmesh,Xmesh,cmode,'LineStyle','none')
             h = set(gca,'FontSize',30);
             set(h,'Interpreter','LaTeX')
             xlabel('$x$','Interpreter','LaTeX','FontSize',30)
             ylabel('$y$','Interpreter','LaTeX','FontSize',30) 
-            eval = revals(ll);
             txt = sprintf('$$\\lambda: %1.4f + %1.4f i$$',real(eval),imag(eval));
             title(txt,'interpreter','latex')
+            
+            figure(2*(ll-1)+2+2)
+            surf(Kvec,Kvec,log10(abs(fftshift(fft2(cmode)/KT))),'LineStyle','none')
+            h = set(gca,'FontSize',30);
+            set(h,'Interpreter','LaTeX')
+            xlabel('$K_x$','Interpreter','LaTeX','FontSize',30)
+            ylabel('$K_y$','Interpreter','LaTeX','FontSize',30) 
+            txt = sprintf('$$\\lambda: %1.4f + %1.4f i$$',real(eval),imag(eval));
+            title(txt,'interpreter','latex')            
         end
         
         %{
@@ -197,14 +220,14 @@ function wwt_maker(K,Llx,tf)
         end
         %}
         
-        figure(pcnt+3)
+        figure(11)
         scatter(real(cdevals),imag(cdevals),10,'filled')        
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
         xlabel('$\mbox{Re}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30)
         ylabel('$\mbox{Im}(\lambda_{j})$','Interpreter','LaTeX','FontSize',30) 
         
-        figure(pcnt+4)
+        figure(12)
         plot(tsamp,mdcnts/nmbrmds,'k-','LineWidth',2)
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
@@ -215,13 +238,20 @@ function wwt_maker(K,Llx,tf)
     
     ufin = ifft2(reshape(un,KT,KT));
     
-    figure(pcnt+5)
+    figure(13)
     surf(Xmesh,Xmesh,abs(ufin),'LineStyle','none')
     h = set(gca,'FontSize',30);
     set(h,'Interpreter','LaTeX')
     xlabel('$x$','Interpreter','LaTeX','FontSize',30)
     ylabel('$y$','Interpreter','LaTeX','FontSize',30)
     
+    figure(14)
+    surf(Kvec,Kvec,log10(abs(fftshift(reshape(un,KT,KT))/KT)),'LineStyle','none')
+    h = set(gca,'FontSize',30);
+    set(h,'Interpreter','LaTeX')
+    xlabel('$K_x$','Interpreter','LaTeX','FontSize',30)
+    ylabel('$K_y$','Interpreter','LaTeX','FontSize',30)
+        
     toc
 end
 
