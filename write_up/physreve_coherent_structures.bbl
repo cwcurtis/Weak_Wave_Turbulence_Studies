@@ -1,0 +1,71 @@
+\begin{thebibliography}{10}
+
+\bibitem{navon}
+N.~Navon, A.L. Gaunt, R.P. Smith, and Z.~Hadzibabic.
+\newblock Emergence of a turbulence cascade in a quantum gas.
+\newblock {\em Nature}, 539:72--75, 2016.
+
+\bibitem{zakharov}
+V.E. Zakharov.
+\newblock Weak turbulence in media with decay dispersion law.
+\newblock {\em Zh. Prikl. Mekh I Tekhn. Fiz.}, 4:35, 1965.
+
+\bibitem{nazarenko}
+S.~Nazarenko.
+\newblock {\em Wave Turbulence}.
+\newblock Springer, New York, NY, 2011.
+
+\bibitem{newell}
+A.C. Newell, S.~Nazarenko, and L.~Biven.
+\newblock Wave turbulence and intermittency.
+\newblock {\em Physica D}, 152:520--550, 2001.
+
+\bibitem{cai}
+D.~Cai, A.J. Majda, D.W. McLaughlin, and E.G. Tabak.
+\newblock Dispersive wave turbulence in one dimension.
+\newblock {\em Physica D}, 152:551--572, 2001.
+
+\bibitem{nazarenko2}
+S.~Nazarenko and M.~Onorato.
+\newblock Wave turbulence and vortices in {B}ose--{E}instein condensation.
+\newblock {\em Physica D}, 219:1--12, 2006.
+
+\bibitem{mordant}
+N.~Mordant and B.~Miquel.
+\newblock Intermittency and emergence of coherent structures in wave turbulence
+  of a vibrating plate.
+\newblock {\em Phys. Rev. E}, 96:042204, 2017.
+
+\bibitem{schmid}
+P.~Schmid.
+\newblock Dynamic mode decomposition of numerical and experimental data.
+\newblock {\em J. Fluid Mech.}, 656:5--28, 2010.
+
+\bibitem{williams}
+M.O. Williams, I.~G. Kevrekidis, and C.~W. Rowley.
+\newblock A data-driven approximation of the {K}oopman operator: extending
+  dynamic mode decomposition.
+\newblock {\em J. Nonlin. Sci.}, 25:1307--1346, 2015.
+
+\bibitem{kutz}
+J.N. Kutz, S.L. Brunton, B.W. Brunton, and J.L. Proctor.
+\newblock {\em Dynamic Mode Decomposition: Data-driven modeling of complex
+  systems}.
+\newblock SIAM, Philadelphia, PA, 2016.
+
+\bibitem{pethick}
+C.J. Pethick and H.~Smith.
+\newblock {\em Bose--{E}instein Condensation in Dilute Gases}.
+\newblock Cambridge University Press, Cambridge, 2011.
+
+\bibitem{koopman}
+B.O. Koopman.
+\newblock Hamiltonian systems and transformation in {H}ilbert space.
+\newblock {\em Proc. Nat. Acad. Sci.}, 17:315--318, 1931.
+
+\bibitem{chorin}
+A.J. Chorin, O.H. Hald, and R.~Kupferman.
+\newblock Optimal prediction with memory.
+\newblock {\em Physica D}, 166:239--257, 2002.
+
+\end{thebibliography}

@@ -1,7 +1,7 @@
 function wwt_maker(K,Llx,tf)
 
     tic
-    scl = .75;
+    scl = 1;
     
     tf = 1/scl*tf;
     
@@ -12,7 +12,7 @@ function wwt_maker(K,Llx,tf)
     KT = 2*K;
     KTT = KT^2;
 
-    f0c = KTT*2.1e-3; 
+    f0c = KTT*1.6e-3; 
     nuh = 1/scl*2e-6;
     nul = 0;
 
@@ -159,11 +159,13 @@ function wwt_maker(K,Llx,tf)
         epow = ones(length(devals),1);
         mdcnts = zeros(dcnt-1,1);
         tsamp = zeros(dcnt-1,1);
+        mincnt = zeros(dcnt-2,1);
+        maxcnt = zeros(dcnt-2,1);
         
         for mm=1:dcnt-1
             bamp = epow.*bspread;
             [~,mxindslc] = sort(abs(bamp),'descend');
-                        
+                 
             indl = 0;
             err = 1;
             approx = 0;
@@ -174,7 +176,17 @@ function wwt_maker(K,Llx,tf)
             end
             mdcnts(mm) = indl;
             tsamp(mm) = dt*(Nstart + (mm-1)*NDMD);
-            
+            new_inds = mxindslc(1:indl);
+            if mm>1
+               rcnt = length(old_inds);
+               ccnt = length(new_inds);
+               mx = max(rcnt,ccnt);
+               %mn = min(rcnt,ccnt);
+               diffmat = (repmat(new_inds',rcnt,1)-repmat(old_inds,1,ccnt))==0;  
+               loctot = sum(sum(diffmat));                                                         
+               %mincnt(mm-1) = loctot/mn;
+               maxcnt(mm-1) = loctot/mx;
+            end
             if mm == dcnt-1
                 maxvals = cdevals(mxindslc(1:indl));
                 redinds = imag(maxvals) >= 0;
@@ -183,9 +195,9 @@ function wwt_maker(K,Llx,tf)
                 brm = bamp(mxindslc(1:indl));
                 modes = abs(rvecs(:,redinds)*diag(brm(redinds)));
                 pcnt = sum(redinds);
-            end
-            
+            end            
             epow = epow.*devals;
+            old_inds = new_inds;            
         end
         Kvec = -K+1:K;
         if pcnt >= 4
@@ -237,18 +249,24 @@ function wwt_maker(K,Llx,tf)
         xlabel('$t^{(s)}_{n}$','Interpreter','LaTeX','FontSize',30)
         ylabel('$C_{r}(n)$','Interpreter','LaTeX','FontSize',30)  
         
+        figure(13)
+        plot(tsamp(2:end),maxcnt,'k-','LineWidth',2)
+        h = set(gca,'FontSize',30);
+        set(h,'Interpreter','LaTeX')
+        xlabel('$t^{(s)}_{n}$','Interpreter','LaTeX','FontSize',30)        
+        ylabel('$O_{r}(n)$','Interpreter','LaTeX','FontSize',30)        
     end
     
     ufin = ifft2(reshape(un,KT,KT));
     
-    figure(13)
+    figure(14)
     surf(Xmesh,Xmesh,abs(ufin),'LineStyle','none')
     h = set(gca,'FontSize',30);
     set(h,'Interpreter','LaTeX')
     xlabel('$x$','Interpreter','LaTeX','FontSize',30)
     ylabel('$y$','Interpreter','LaTeX','FontSize',30)
     
-    figure(14)
+    figure(15)
     surf(Kvec,Kvec,log10(abs(fftshift(reshape(un,KT,KT))/KT)),'LineStyle','none')
     h = set(gca,'FontSize',30);
     set(h,'Interpreter','LaTeX')

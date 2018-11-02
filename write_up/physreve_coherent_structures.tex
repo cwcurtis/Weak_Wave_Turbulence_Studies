@@ -2,12 +2,9 @@
 
 \usepackage{amsmath}
 \usepackage{amssymb}
-%\usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \epstopdfsetup{update}
-%\usepackage{caption}
-%\usepackage{subcaption}
 
 \newcommand{\ba}{\begin{array}}
 \newcommand{\ea}{\end{array}}
@@ -47,13 +44,17 @@
 \newcommand{\gnorm}[1]{\left|\left| #1\right|\right|}
 \newcommand{\ipro}[2]{\left<#1,#2 \right>}
 
+\begin{document}
 \author{Christopher W. Curtis}
 \author{Ricardo Carretero}
 \author{Matteo Polimeno}
-\affiliation{San Diego State University}
-\date{}
+\affiliation{Department of Mathematics and Statistics, San Diego State University}
+\date{\today}
 \title{Characterizing Coherent Structures in Bose-Einstein Condensates through Dynamic-Mode Decomposition}
-\begin{document}
+
+\begin{abstract}
+Abstract goes here.
+\end{abstract}
 \maketitle
 \section*{Introduction}
 With the recent experimental observation of turbulent cascades in a Bose-Einstein Condensate (BEC) \cite{navon}, it is important to continue to better understand and characterize in as quantitative a means as possible the complex dynamics associated with turbulence in dispersive, nonlinear-wave systems.  While small-amplitude states whose statistics remain nearly Gaussian permit a relatively complete analytic characterization of turbulent cascades, embodied in the weak-wave turbulence (WWT) theory initiated in \cite{zakharov} and collected in \cite{nazarenko}, as noted in \cite{newell,cai}, the assumptions which one makes to derive results in WWT necessarily must generically break down over long-enough timescales.  
@@ -72,12 +73,12 @@ i\psi_{t} = -\Delta \psi +  \left| \psi\right|^{2}\psi + \gamma_{f}({\bf x},t) -
 \]
 Note, we always remain in the defocusing, or `dark', case.  We solve this equation with periodic boundary conditions, where the common period $2L \gg 1$ so that we have the equivalent Fourier representation of $\psi$,
 \[
-\psi({\bf x},t) = \sum_{{\bf k}_{mn}} a({\bf k}_{mn},t) e^{\pi i {\bf k}_{mn}\cdot {\bf x}/L}.
+\psi({\bf x},t) = \sum_{{\bf m}} a_{{\bf m}}(t) e^{ i {\bf k}_{{\bf m}}\cdot {\bf x}}, ~ {\bf m} = (m,n), ~ {\bf k}_{{\bf m}} = \frac{\pi}{L}{\bf m}.
 \]
 
 The forcing $\gamma_{f}$ is chosen so as to be a spectrally-band limited function 
 \[
-\gamma_{f}({\bf x},t) = \gamma_{0}e^{2\pi i\varphi(t)}\sum_{k_{l}\leq |{\bf k}_{mn}| \leq k_{h}} e^{\pi i {\bf k}_{mn}\cdot {\bf x}/L}, ~ {\bf k}_{mn} = (m,n), 
+\gamma_{f}({\bf x},t) = \gamma_{0}e^{2\pi i\varphi(t)}\sum_{k_{l}\leq \gnorm{{\bf k}_{{\bf m}}}_{2} \leq k_{h}} e^{i {\bf k}_{{\bf m}}\cdot {\bf x}}, ~ \gnorm{{\bf k}_{{\bf m}}}_{2} = \frac{\pi}{L}\sqrt{m^{2}+n^{2}},
 \]
 and the phase $\varphi(t)$ is such that $\varphi(t)  \sim U(0,1)$ where $U(0,1)$ denotes random variables uniformly distributed between $0$ and $1$.  Thus, our forcing is characterized by an injection range of wavenumbers via the choices of $k_{l}$ and $k_{h}$.  We likewise see that the forcing is unbiased in any particular spatial direction, so that by starting with zero-initial conditions, we see that the solution $\psi({\bf x},t)$ will largely mimick the forcing until it has reached a large enough amplitude that nonlinearity, through four-wave mixing, is able to transfer energy across Fourier modes.  This is ultimately balanced against the strength of the hyperviscosity characterized by the magnitude of $\nu_{h}$ and the hypoviscosity characterized by the magnitude of $\nu_{l}$.  
 
@@ -94,7 +95,7 @@ E_{d}(k,t) = 2\pi k\omega(k)n(k,t),
 \]
 where $\omega(k)$ is the dispersion relationship of the GPE, and $n(k)$ is given by 
 \[
-n(k,t) = \left< \left|a(\bk_{nm},t)\right|^{2}\right>, ~ \left|\bk_{nm}\right| = k.
+n(k,t) = \left< \left|a_{{\bf m}}(t)\right|^{2}\right>, ~ \gnorm{{\bf m}}_{2} = k.
 \]
 The brackets denote averaging, which in our case, assuming ergodicity, will correspond to temporally averaging the power spectra of the solution of the GPE.  
 
@@ -105,10 +106,89 @@ Associated with the energy density is an affiliated energy flux $\epsilon$ so th
 It is one of the major achievements in the WWT theory that one can derive Boltzman like kinetic equations describing the evolution of $n(k,t)$ \cite{nazarenko}.  Thus, if we characterize the WWT state as one at which the energy density is in quasi-equilibrium so that $\pd_{t}E_{d}\sim 0$, which therefore implies that $\pd_{t}n(k,t)\sim 0$, we can then distinguish equilibrium profiles of $n(k,t)$ by whether $\epsilon \sim 0$ or $\epsilon \sim c$, where c is some constant.  The zero case corresponds to no energy flux, thereby describing a thermodynamically steady state associated with the equipartion of energy.  It is the non-zero energy flux states which distinguish WWT states, and those that we are most interested in studying.  
 
 \section*{Dynamic-Mode Decomposition}
-We briefly review the details of the DMD for completeness and to better explain later results.  In DMD, we assume that any time series of a dynamical quantity of interest, denoted by $\left\{\phi_{n}\right\}_{n=1}^{\infty}$, where $\phi_{n}\in \mathbb{R}^{M}$, can be described through a linear process mediated via an operator, say $A$ so that 
+We review the details of the DMD for completeness to better explain later results.  Moreover, we explain some of the original physical motivation introduced in \cite{koopman}, used elsewhere for data reduction and analysis in \cite{chorin}, to help provide insight as to why the DMD method is effective.   To do this, for the moment we ignore the forcing, hypo-viscosity, and hyper-viscosity, focusing solely on the two-dimensional NLS equation.   Starting from the well-known Hamiltonian of the NLS equation, say $H$, where 
 \[
-\phi_{n+1} = A \phi_{n}.  
+H = \int \left|\nabla \psi \right|^{2}d{\bf x} + \frac{1}{2}\int \left| \psi\right|^{4}d{\bf x},
+\]
+the NLS equation can be rewritten in variational form as 
+\[
+i\psi_{t} = \frac{\delta H}{\delta \psi^{\ast}}.
+\]
+Using a Fourier expansion, we get the equivalent Hamiltonian system 
+\[
+i\pd_{t}a_{{\bf m}}\left(t\right) = \frac{\delta H}{\delta a^{\ast}_{{\bf m}}(t)}
+\]
+where $H>0$ becomes
+\[
+H = \sum_{{\bf m}}\omega(k_{{\bf m}})\left| a_{{\bf m}} \right|^{2}
++ \frac{1}{2}\sum_{{\bf m}_{1},{\bf m}_{2},{\bf m}_{3},{\bf m}} a_{{\bf m}_{1}} a_{{\bf m}_{2}}  a^{\ast}_{{\bf m}_{3}} a^{\ast}_{{\bf m}} \delta({\bf m}_{1}+{\bf m}_{2}-{\bf m}_{3}-{\bf m}),
+\]
+with $\delta(\cdot)$ being the Kroenecker delta function or tensor.  Truncating the system so it is consistent with a pseudo-spectral method where in spectral space we require that 
+\[
+0\leq\gnorm{{\bf m}}_{\infty}\leq K, ~ \gnorm{{\bf m}}_{\infty} = \max\left\{\left|m\right|,\left|n\right|\right\},
+\]
+gives us the affiliated dynamical system 
+\[
+i\pd_{t}a_{{\bf m}} = F_{\bf m}({\bf a}), ~ {\bf a} \in \mathbb{C}^{2K+1}, ~ 0\leq \gnorm{{\bf m}}_{\infty} \leq K,
+\]
+where, taking into account the effect of aliasing, we have  
+\[
+F_{\bf m}({\bf a}) = \omega(k_{{\bf m}})a_{{\bf m}} 
++ \sum_{0\leq\gnorm{{\bf m}_{1}}_{\infty}\leq K}\sum_{0\leq\gnorm{{\bf m}_{2}}_{\infty}\leq K}a_{{\bf m}_{1}} a_{{\bf m}_{2}} a^{\ast}_{\tau({\bf m}_{1}+{\bf m}_{2}-{\bf m})},
+\]
+where, letting $K_{T}=2K+1$, $sm=\mbox{sgn}(m)$, and $sn=\mbox{sgn}(n)$, we have 
+\[
+\tau\left({\bf m}\right) = 
+\left\{
+\ba{rl} 
+{\bf m}, & 0\leq \gnorm{{\bf m}}_{\infty} \leq K\\   
+{\bf m} -\left(sm,0\right) K_{T}, & |m|>K, |n|\leq K \\
+{\bf m} -\left(0,sn\right)K_{T}, & |m|\leq K, |n|>K \\
+{\bf m} - \left(sm,sn\right)K_{T}, & |m| > K, |n| > K \\
+\ea
+\right.
+\]
+We define the affiliated flow for initial conditions ${\bf a}_{0}$ via the flow map $\varphi(t;{\bf a}_{0})$.  We readily see that the functional $\tilde{H}({\bf a};K)$ where 
+\[
+\tilde{H}({\bf a};K) = \sum_{0\leq \gnorm{{\bf m}}_{\infty}\leq K} \omega(k_{{\bf m}})\left| a_{{\bf m}} \right|^{2} + \frac{1}{2}\sum_{0\leq \gnorm{{\bf m}}_{\infty}\leq K} \sum_{0\leq\gnorm{{\bf m}_{1}}_{\infty}\leq K}\sum_{0\leq\gnorm{{\bf m}_{2}}_{\infty}\leq K}a_{{\bf m}_{1}} a_{{\bf m}_{2}} a^{\ast}_{\tau({\bf m}_{1}+{\bf m}_{2}-{\bf m})}a^{\ast}_{{\bf m}}
+\]
+provides a Hamiltonian of the finite-dimensional system.  
+
+Fixing $K$ then, we can define the density 
+\[
+\rho({\bf a}) = e^{-\tilde{H}({\bf a};K)}/Z, ~ {\bf a} \in \mathbb{C}^{2K+1},
+\]
+thus making the normalization constant $Z = \int_{\mathbb{C}^{2K+1}} e^{-\tilde{H}({\bf a};K)} d{\bf a}$.  Following \cite{chorin}, this gives us an average $\mbox{E}[f]$ where 
+\[
+\mbox{E}[f] = \int_{\mathbb{C}^{2K+1}} f({\bf a})\rho({\bf a})d{\bf a}.
+\]
+From the density we can define an invariant measure $\mu$, which allows us to readily define the affiliated Hilbert space $L_{2}(\mathbb{C}^{2K+1},\mu)$ with inner product $\left<f,g\right> = \mbox{E}[fg]$. Using the method of characteristics, we can define for our flow the associated Liouville operator $\mathcal{L}$ so that the solution to the equation
+\[
+u_{t} = \mathcal{L}u, ~ u({\bf a},0) = g({\bf a}) \in L_{2}(\mathbb{C}^{2K+1},\mu),
+\]
+has the solution 
+\[
+u({\bf a},t) = e^{\mathcal{L}t}g({\bf a}) = g(\varphi(t,{\bf a})).  
+\]
+Using the semigroup property of $e^{\mathcal{L}t}$ and $\varphi$, we see that by choosing a fixed timestep $\delta t$, we have 
+\[
+g(\varphi(t+\delta t,{\bf a}))= e^{\mathcal{L}\delta t} g(\varphi(t,{\bf a})).
+\]
+Thus, for any reasonably defined quantity $g$, there exists a linear operator $e^{L\delta t}$ which transports that quantity forward in discrete steps of time.  The Hamiltonian structure of the underlying finite-dimensional system ensures that $e^{L\delta t}$ is a unitary operator, which is to say that it preserves the $L_{2}(\mathbb{C}^{2K+1},\mu)$-norm of a given function.  Note, our presentation makes explicit the role of the linear Koopman operator, i.e. $e^{\mathcal{L}\delta t}$, found in \cite{kutz} and elsewhere.  See the original work by Koopman in \cite{koopman} for more details on the connection to the Liouville operator.  
+
+We now choose the measurable quantities $g^{(l)}({\bf a}(t;{\bf a}_{0}))=g^{(l)}(\varphi(t,{\bf a}_{0}))$ to be 
+\[
+g^{(l)}\left({\bf a}(t;{\bf a}_{0})\right) = \left|\sum_{0\leq\gnorm{{\bf m}}_{\infty}\leq K}a_{{\bf m}}(t)e^{i{\bf k}_{{\bf m}}\cdot {\bf x}_{l}} \right|,
+\]
+where we sample at the $l=1, \cdots, (2K+1)^{2}$ points ${\bf x}_{l}$ in the affiliated numerical mesh, corresponding to sampling the magnitude of the wave-function $\psi$ at the mesh-points of our numerical simulation.  The DMD method in the context of this paper consists of first generating a sequence of $N+1$ samples of $g^{(l)}$, say $g^{(l)}_{n} = g^{(l)}({\bf a}(t_{n};{\bf a}_{0}))$, $t_{n}=n\delta t $, $n=0,\cdots,N$.   Thus, we have that 
+\[
+g^{(l)}_{n+1} = e^{\mathcal{L}\delta t} g^{(l)}_{n}.  
 \] 
+For the ease of exposition, we suppose that $\mathcal{L}$ is in effect fully represented by a series of orthonormal eigenvectors and eigenvalues denoted respectively as $\left\{\phi_{j}({\bf a})\right\}_{j=1}^{\infty}$, $\left\{i\lambda_{j}\right\}_{j=1}^{\infty}$, $\lambda_{j}\in\mathbb{R}$.  Thus, given our assumption on the spectrum of $\mathcal{L}$, we have that 
+\[
+g^{(l)}_{n+1} = \sum_{j=1}^{\infty}\left<\phi_{j},g^{(l)}\right>\phi_{j}({\bf a}(t_{n};{\bf a}_{0}))e^{i\lambda_{j}\delta t}
+\]
+
 We treat $A$ as essentially unknowable in any direct sense, but by using the affiliated matrices $V_{1}^{N}$, where
 \[
 V^{N}_{1} = \left\{\phi_{1} \cdots \phi_{N} \right\}
@@ -245,6 +325,7 @@ The impact of this manifests itself in the different dynamics and long time beha
 \section*{Conclusion}
 
 \section*{Appendix}
+\subsection*{Derivations Regarding Healing Lengths}
 With units, our model of a BEC is given by the following Gross--Pitaevksii equation (GPE)
 \[
 i\hbar\psi_{t} = -\frac{\hbar^{2}}{2m}\Delta \psi + g\left| \psi\right|^{2}\psi, ~ g = \frac{4\pi \hbar^{2}a_{s}}{m}
