@@ -164,19 +164,19 @@ thus making the normalization constant $Z = \int_{\mathbb{C}^{2K+1}} e^{-\tilde{
 \]
 From the density we can define an invariant measure $\mu$, which allows us to readily define the affiliated Hilbert space $L_{2}(\mathbb{C}^{2K+1},\mu)$ with inner product $\left<f,g\right> = \mbox{E}[fg]$. Using the method of characteristics, we can define for our flow the associated Liouville operator $\mathcal{L}$ so that the solution to the equation
 \[
-u_{t} = \mathcal{L}u, ~ u({\bf a},0) = g({\bf a}) \in L_{2}(\mathbb{C}^{2K+1},\mu),
+u_{t} = \mathcal{L}u, ~ u({\bf a}_{0},0) = g({\bf a}_{0}) \in L_{2}(\mathbb{C}^{2K+1},\mu),
 \]
-has the solution 
+has the solution
 \[
-u({\bf a},t) = e^{\mathcal{L}t}g({\bf a}) = g(\varphi(t,{\bf a})).  
+u({\bf a}_{0},t) = e^{\mathcal{L}t}g({\bf a}_{0}) = g(\varphi(t,{\bf a}_{0})).  
 \]
 Using the semigroup property of $e^{\mathcal{L}t}$ and $\varphi$, we see that by choosing a fixed timestep $\delta t$, we have 
 \[
-g(\varphi(t+\delta t,{\bf a}))= e^{\mathcal{L}\delta t} g(\varphi(t,{\bf a})).
+g(\varphi(t+\delta t,{\bf a}_{0}))= e^{\mathcal{L}\delta t} g(\varphi(t,{\bf a}_{0})).
 \]
 Thus, for any reasonably defined quantity $g$, there exists a linear operator $e^{L\delta t}$ which transports that quantity forward in discrete steps of time.  The Hamiltonian structure of the underlying finite-dimensional system ensures that $e^{L\delta t}$ is a unitary operator, which is to say that it preserves the $L_{2}(\mathbb{C}^{2K+1},\mu)$-norm of a given function.  Note, our presentation makes explicit the role of the linear Koopman operator, i.e. $e^{\mathcal{L}\delta t}$, found in \cite{kutz} and elsewhere.  See the original work by Koopman in \cite{koopman} for more details on the connection to the Liouville operator.  
 
-We now choose the measurable quantities $g^{(l)}({\bf a}(t;{\bf a}_{0}))=g^{(l)}(\varphi(t,{\bf a}_{0}))$ to be 
+We now choose the measurable quantities $g^{(l)}({\bf a}(t,{\bf a}_{0})) = g^{(l)}(\varphi(t,{\bf a}_{0}))$ to be 
 \[
 g^{(l)}\left({\bf a}(t;{\bf a}_{0})\right) = \left|\sum_{0\leq\gnorm{{\bf m}}_{\infty}\leq K}a_{{\bf m}}(t)e^{i{\bf k}_{{\bf m}}\cdot {\bf x}_{l}} \right|,
 \]
@@ -186,9 +186,21 @@ g^{(l)}_{n+1} = e^{\mathcal{L}\delta t} g^{(l)}_{n}.
 \] 
 For the ease of exposition, we suppose that $\mathcal{L}$ is in effect fully represented by a series of orthonormal eigenvectors and eigenvalues denoted respectively as $\left\{\phi_{j}({\bf a})\right\}_{j=1}^{\infty}$, $\left\{i\lambda_{j}\right\}_{j=1}^{\infty}$, $\lambda_{j}\in\mathbb{R}$.  Thus, given our assumption on the spectrum of $\mathcal{L}$, we have that 
 \[
-g^{(l)}_{n+1} = \sum_{j=1}^{\infty}\left<\phi_{j},g^{(l)}\right>\phi_{j}({\bf a}(t_{n};{\bf a}_{0}))e^{i\lambda_{j}\delta t}
+g^{(l)}_{n+1} = \sum_{j=1}^{\infty}\left<\phi_{j}(\cdot),g^{(l)}({\bf a}(t_{n};\cdot))\right>\phi_{j}({\bf a}_{0})e^{i\lambda_{j}\delta t}
 \]
+where for clarity we note that
+\[
+\left<\phi_{j}(\cdot),g^{(l)}({\bf a}(t_{n};\cdot))\right> = \int_{\mathbb{C}^{2K+1}}\phi^{\ast}_{j}({\bf a}_{0})g^{(l)}({\bf a}(t_{n};{\bf a}_{0}))\rho\left({\bf a}_{0}\right)d{\bf a}_{0}
+\] 
 
+If we then further suppose that the eigenvectors $\left\{\phi_{j}\right\}_{j=1}^{\infty}$ form a basis for $L_{2}(\mathbb{C}^{2K+1},\mu)$, then we have 
+\[
+g^{(l)}({\bf a}_{0}) = \sum_{j=1}^{\infty}\left<\phi_{j},g^{(l)}\right>\phi_{j}({\bf a}_{0}).
+\]
+Noting that the inner product corresponds to an average, if we invoke an ergodic hypothesis and assume $\delta t$ is relatively small while $N$ is relatively large, then we have that 
+\[
+\left<\phi_{j},g^{(l)}\right> \approx \frac{1}{N+1}\sum_{n=0}^{N}\phi_{j}({\bf a}(t_{n};{\bf a}_{0}))g^{(l)}_{n}
+\]
 We treat $A$ as essentially unknowable in any direct sense, but by using the affiliated matrices $V_{1}^{N}$, where
 \[
 V^{N}_{1} = \left\{\phi_{1} \cdots \phi_{N} \right\}
