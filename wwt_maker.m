@@ -12,7 +12,7 @@ function wwt_maker(K,Llx,tf)
     KT = 2*K;
     KTT = KT^2;
 
-    f0c = KTT*1.6e-3; 
+    f0c = KTT*2.1e-3; 
     nuh = 1/scl*2e-6;
     nul = 0;
 
@@ -20,8 +20,8 @@ function wwt_maker(K,Llx,tf)
     Xmesh = Xmesh(1:KT)';
     dreg = 1e-2;
     
-    Kl = 60;
-    Kh = 63;
+    Kl = 4;
+    Kh = 6;
 
     Dds = 1i*pi/Llx*[0:K-1 0 -K+1:-1]'; 
     Dxs = kron(Dds,ones(KT,1));
@@ -180,12 +180,10 @@ function wwt_maker(K,Llx,tf)
             if mm>1
                rcnt = length(old_inds);
                ccnt = length(new_inds);
-               mx = max(rcnt,ccnt);
-               %mn = min(rcnt,ccnt);
                diffmat = (repmat(new_inds',rcnt,1)-repmat(old_inds,1,ccnt))==0;  
                loctot = sum(sum(diffmat));                                                         
                %mincnt(mm-1) = loctot/mn;
-               maxcnt(mm-1) = loctot/mx;
+               maxcnt(mm-1) = loctot/(rcnt+ccnt-loctot);
             end
             if mm == dcnt-1
                 maxvals = cdevals(mxindslc(1:indl));
@@ -254,7 +252,7 @@ function wwt_maker(K,Llx,tf)
         h = set(gca,'FontSize',30);
         set(h,'Interpreter','LaTeX')
         xlabel('$t^{(s)}_{n}$','Interpreter','LaTeX','FontSize',30)        
-        ylabel('$O_{r}(n)$','Interpreter','LaTeX','FontSize',30)        
+        ylabel('$\mathcal{J}_{i}(n)$','Interpreter','LaTeX','FontSize',30)        
     end
     
     ufin = ifft2(reshape(un,KT,KT));

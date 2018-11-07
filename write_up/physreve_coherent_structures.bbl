@@ -36,6 +36,12 @@ N.~Mordant and B.~Miquel.
   of a vibrating plate.
 \newblock {\em Phys. Rev. E}, 96:042204, 2017.
 
+\bibitem{mezic1}
+I.~Mezi\'{c}.
+\newblock Spectral properties of dynamical systems, model reduction, and
+  decompositions.
+\newblock {\em Nonlinear Dyn.}, 41:309--325, 2005.
+
 \bibitem{schmid}
 P.~Schmid.
 \newblock Dynamic mode decomposition of numerical and experimental data.
@@ -67,5 +73,16 @@ B.O. Koopman.
 A.J. Chorin, O.H. Hald, and R.~Kupferman.
 \newblock Optimal prediction with memory.
 \newblock {\em Physica D}, 166:239--257, 2002.
+
+\bibitem{mezic2}
+M.~Korda and I.~Mezi\'{c}.
+\newblock On convergence of extended dynamic mode decomposition to the
+  {K}oopman operator.
+\newblock {\em J. Nonlinear Sci.}, 28:687--710, 2018.
+
+\bibitem{tan}
+P.N. Tan, M.~Steinbach, and V.~Kumar.
+\newblock {\em Introduction to Data Mining}.
+\newblock Pearson, New York, NY, 2018.
 
 \end{thebibliography}
