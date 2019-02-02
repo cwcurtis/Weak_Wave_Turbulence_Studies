@@ -19,8 +19,6 @@ theta = theta(1:Ndata);
 uinterp = ones(KT);
 uextend = kron(ones(1,Ndata),uplus');
 
-% build four different vortices 
-
 Nvorts = length(xcs(:,1));
 
 for mm=1:Nvorts
